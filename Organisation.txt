@@ -1,0 +1,5 @@
+Admin : Lister les utilisateurs en base de données et consulter les infos de tous
+
+
+
+user : s'inscrire , jouer a un jeu , modifier ses info de profil

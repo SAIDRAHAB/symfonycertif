@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -40,6 +42,18 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Jeux::class, mappedBy="relation")
+     */
+    private $jeuxes;
+
+  
+
+    public function __construct()
+    {
+        $this->jeuxes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -128,4 +142,32 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    /**
+     * @return Collection|Jeux[]
+     */
+    public function getJeuxes(): Collection
+    {
+        return $this->jeuxes;
+    }
+
+    public function addJeux(Jeux $jeux): self
+    {
+        if (!$this->jeuxes->contains($jeux)) {
+            $this->jeuxes[] = $jeux;
+            $jeux->addRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJeux(Jeux $jeux): self
+    {
+        if ($this->jeuxes->removeElement($jeux)) {
+            $jeux->removeRelation($this);
+        }
+
+        return $this;
+    }
+
 }

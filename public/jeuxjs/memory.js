@@ -13,8 +13,8 @@ var timer = document.getElementById('time');
     .forEach(function(pic){
         let p = document.createElement('img');
         console.log(p);
-        p.src = 'pics/spr0.png';
-        p.src0 = 'pics/spr'+pic[0]+'.png';
+        p.src = 'img/pics/spr0.png';
+        p.src0 = 'img/pics/spr'+pic[0]+'.png';
         p.clicked = false;
         memory.appendChild(p);
         
@@ -37,7 +37,7 @@ function check(){
         points += 50;
     } else {
         // turn pics
-        p1.src = p2.src = 'pics/spr0.png';
+        p1.src = p2.src = 'img/pics/spr0.png';
         points = Math.max(0, points-20);
     }
     score.textContent = points;

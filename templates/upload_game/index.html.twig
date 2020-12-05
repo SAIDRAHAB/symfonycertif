@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UploadGame index{% endblock %}
+
+{% block body %}
+    <h1>UploadGame index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for upload_game in upload_games %}
+            <tr>
+                <td>{{ upload_game.id }}</td>
+                <td>{{ upload_game.Titre }}</td>
+                <td>{{ upload_game.Description }}</td>
+                <td>
+                    <a href="{{ path('upload_game_show', {'id': upload_game.id}) }}">show</a>
+                    <a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('upload_game_new') }}">Create new</a>
+{% endblock %}

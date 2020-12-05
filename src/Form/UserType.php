@@ -14,7 +14,6 @@ class UserType extends AbstractType
         $builder
             ->add('email')
             ->add('pseudo')
-            ->add('roles')
             ->add('password')
             ->add('jeuxes')
         ;

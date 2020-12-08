@@ -3,18 +3,24 @@
 {% block title %}Hello QuisommenousController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container" style="margin-top: 50px;">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Mugiwara/Documents/symfony/yesman/src/Controller/QuisommenousController.php'|file_link(0) }}">src/Controller/QuisommenousController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Mugiwara/Documents/symfony/yesman/templates/quisommenous/index.html.twig'|file_link(0) }}">templates/quisommenous/index.html.twig</a></code></li>
-    </ul>
+<div class="jumbotron">
+
+		
+  <h1 class="display-3">Qui sommes nous ?
+</h1>
+  
+ 
+  <p class="lead">Boo est un site web de jeux éducatifs professionnels à destination des enfants. </p>
+  <hr class="my-4">
+<p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+<p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+  <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ path('monprofil') }}" role="button">Learn more</a>
+  </p>
+</div>
 </div>
 {% endblock %}

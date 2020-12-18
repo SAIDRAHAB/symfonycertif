@@ -249,39 +249,8 @@ body {
   background-color: #f8f8f8;
 }
 
-h1 {
-  margin: 0;
-  padding: 5vmin;
-  color: rgba(0, 0, 0, 0.5);
-  font-family: Arial, sans-serif;
-  font-size: 7.5vmin;
-  font-weight: lighter;
-  text-align: center;
-  background: linear-gradient(
-      to right,
-      rgba(150, 111, 51, 0.4),
-      rgba(150, 111, 51, 0.2)
-    ),
-    repeating-linear-gradient(
-      to right,
-      #eec487,
-      #eec487 3vmin,
-      #f3cf9a 3vmin,
-      #f3cf9a 6vmin,
-      #f8d8a2 6vmin,
-      #f8d8a2 9vmin,
-      #f1ca88 9vmin,
-      #f1ca88 12vmin,
-      #f4d09e 12vmin,
-      #f4d09e 15vmin,
-      #faddb0 15vmin,
-      #faddb0 18vmin,
-      #eec88a 18vmin,
-      #eec88a 21vmin
-    );
-}
 
-form {
+form ,h1 {
   text-align: center;
 }
 
@@ -329,7 +298,7 @@ form {
     );
 }
 
-button {
+#reset {
   margin: 7.5vmin auto;
   border: none;
   border-radius: 1vmin;
@@ -342,9 +311,9 @@ button {
   cursor: pointer;
   transition: background 0.3s;
 }
-button:hover {
+#reset:hover {
   background: linear-gradient(to right, #caa163, #a77b39);
 }
-button:active {
+#reset:active {
   background: linear-gradient(to right, #cf9844, #9e6f29);
 }

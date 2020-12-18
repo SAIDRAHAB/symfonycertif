@@ -38,7 +38,7 @@ class ContactController extends AbstractController
                 $email = (new TemplatedEmail())
                     ->from($contact->get('email')->getData())
                     ->to('saidrahab@hotmail.fr')
-                    ->subject('Contact depuis le site PetitesAnnonces')
+                    ->subject($contact->get('sujet')->getData())
                     ->htmlTemplate('contact/contact.html.twig')
                     ->context([
                         'mail' => $contact->get('email')->getData(),
@@ -49,8 +49,8 @@ class ContactController extends AbstractController
                 
                 $mailer->send($email);
                 
-                $this->addFlash('message', 'Mail de contact envoyé');
-                return $this->redirectToRoute('monprofil');
+                $this->addFlash('message', 'Mail envoyé');
+                return $this->redirectToRoute('choix_jeux_home');
             }
     
 

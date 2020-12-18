@@ -22,6 +22,17 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('hanoigame', './assets/styles/hanoi.css')
+    
+     .addEntry('smileygame', './assets/styles/smiley.css')
+
+     .addEntry('mathgame', './assets/styles/math.css')
+     .addEntry('memorygame', './assets/styles/memory.css')
+     .addEntry('mathgamejs', './assets/math.js')
+    .addEntry('bootstrap', './assets/styles/bootstrapsketchy.css') 
+     
+   // .addEntry('bootstrapsketchy', './assets/styles/bootstrap.sketchy.css')   
+    
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -60,7 +71,7 @@ Encore
     .enableSassLoader()
 
     // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
+    .enableTypeScriptLoader()
 
     // uncomment if you use React
     //.enableReactPreset()

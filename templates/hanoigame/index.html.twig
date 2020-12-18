@@ -1,14 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HanoigameController!{% endblock %}
-
-{% block stylesheets %}
-
-	<link rel="stylesheet" href="{{ asset('css/jeux/hanoi.scss') }}">
-
-{% endblock %}
-
-
+{% block title %}{% endblock %}
+ {% block stylesheets %}
+ {{ parent() }}     {{ encore_entry_link_tags('hanoigame') }}
+ {% endblock %}
 
 
 {% block body %}
@@ -73,7 +68,7 @@
         <div class="win">You win! :)</div>
     </div>
     <div class="bottom"></div>
-    <button type="reset">New Game</button>
+    <button type="reset" id="reset">New Game</button>
 </form>
 
 

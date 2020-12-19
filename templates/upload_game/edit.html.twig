@@ -3,11 +3,13 @@
 {% block title %}Edit UploadGame{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Edit UploadGame</h1>
 
     {{ include('upload_game/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('upload_game_index') }}">back to list</a>
+    <a href="{{ path('upload_game_index') }}" class="btn btn-light btn-lg square" role="button">back to list</a>
 
     {{ include('upload_game/_delete_form.html.twig') }}
+</div>    
 {% endblock %}

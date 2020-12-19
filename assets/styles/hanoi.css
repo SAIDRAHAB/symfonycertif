@@ -8,9 +8,9 @@ input {
   padding: 0;
   width: 30vmin;
   height: 52.5vmin;
-  cursor: pointer;
+  cursor: pointer !important;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none ;
   -webkit-tap-highlight-color: transparent;
 }
 input:nth-child(6n + 2),

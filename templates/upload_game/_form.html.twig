@@ -1,4 +1,34 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+ {{ form_start(form) }}
+ <div class="form-group">
+          {{ form_label(form.upload_file) }}
+          {{ form_widget(form.upload_file) }}
+          {{ form_errors(form.upload_file) }}
+          
+          
+        </div>
+        <div class="form-group">
+          {{ form_widget(form.send, {'label': "Upload this file", 'attr' : { 'class': 'btn btn-primary' }}) }}
+        </div>
+         {{ form_rest(form) }}
 {{ form_end(form) }}
+ 
+{#  <div class="container container-fluid">
+    <div class="row">
+      <div class="col-lg-8">
+      {{ form_start(form, { attr: { 'accept-charset' : 'utf-8' }}) }}
+       {{ form_row(form.titre) }}
+        {{ form_row(form.description) }}
+        <div class="form-group">
+
+          {{ form_label(form.upload_file) }}
+          {{ form_widget(form.upload_file) }}
+          {{ form_errors(form.upload_file) }}
+        </div>
+        <div class="form-group">
+          {{ form_widget(form.send, {'label': "Upload this file", 'attr' : { 'class': 'btn btn-primary' }}) }}
+        </div>
+        {{ form_rest(form) }}
+      {{ form_end(form) }}
+      </div>
+    </div>
+  </div> #}

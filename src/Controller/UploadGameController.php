@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\FileUploader;
 use App\Entity\UploadGame;
 use App\Form\UploadGameType;
 use App\Repository\UploadGameRepository;
@@ -28,13 +29,31 @@ class UploadGameController extends AbstractController
     /**
      * @Route("/new", name="upload_game_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $file_uploader): Response
     {
         $uploadGame = new UploadGame();
         $form = $this->createForm(UploadGameType::class, $uploadGame);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form['upload_file']->getData();
+      if ($file) 
+      {
+        $file_name = $file_uploader->upload($file);
+        if (null !== $file_name) // for example
+        {
+          $directory = $file_uploader->getTargetDirectory();
+          $full_path = $directory.'/'.$file_name;
+          // Do what you want with the full path file...
+          // Why not read the content or parse it !!!
+        }
+        else
+        {
+          // Oups, an error occured !!!
+        }
+      }
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($uploadGame);
             $entityManager->flush();

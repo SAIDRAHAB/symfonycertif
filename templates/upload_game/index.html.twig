@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}UploadGame index{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>UploadGame index</h1>
+<div class="container" >
+    <h1>Interface d'ajout de jeu</h1>
 
+<div class="container">
     <table class="table">
         <thead>
             <tr>
@@ -22,8 +23,8 @@
                 <td>{{ upload_game.Titre }}</td>
                 <td>{{ upload_game.Description }}</td>
                 <td>
-                    <a href="{{ path('upload_game_show', {'id': upload_game.id}) }}">show</a>
-                    <a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}">edit</a>
+                    <a href="{{ path('upload_game_show', {'id': upload_game.id}) }}" class="btn btn-success btn-sm square" role="button">show</a>
+                    <a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}" class="btn btn-warning btn-sm square" role="button">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,8 +34,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('upload_game_new') }}">Create new</a>
+</div>
+    <a href="{{ path('upload_game_new') }}" class="btn btn-primary btn-lg square" role="button">Create new</a>
 
     </div>
 {% endblock %}

@@ -25,7 +25,7 @@ class Jeux
     private $Titre;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="integer")
      */
     private $Score;
 
@@ -90,5 +90,9 @@ class Jeux
         $this->relation->removeElement($relation);
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->id;
     }
 }

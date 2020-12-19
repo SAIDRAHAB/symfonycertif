@@ -28,11 +28,9 @@ Encore
 
      .addEntry('mathgame', './assets/styles/math.css')
      .addEntry('memorygame', './assets/styles/memory.css')
-     .addEntry('mathgamejs', './assets/math.js')
+     .addEntry('mathgamejs', './assets/math.js')/* 
     .addEntry('bootstrap', './assets/styles/bootstrapsketchy.css') 
-     
-   // .addEntry('bootstrapsketchy', './assets/styles/bootstrap.sketchy.css')   
-    
+      */
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

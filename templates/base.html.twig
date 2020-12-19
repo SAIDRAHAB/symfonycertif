@@ -39,6 +39,12 @@
 	   <li class="nav-item">
         <a class="nav-link" href="{{ path('contact') }}">Contact</a>
       </li>
+
+      {% if is_granted('ROLE_ADMIN') %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('upload_game_index') }}">Admin</a>
+      </li>
+      {%endif%}
      {#  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
         <div class="dropdown-menu">
@@ -50,10 +56,6 @@
         </div>
       </li> #}
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -68,14 +70,10 @@
       <a href="{{ path('smileygame') }}" class="btn btn-primary btn-lg square" role="button">Smiley jeu</a>
       <a href="{{ path('hanoigame') }}" class="btn btn-primary btn-lg square" role="button">Hanoi jeu</a>  
 			<a href="{{ path('mathgame') }}" class="btn btn-primary btn-lg square" role="button">math jeu</a>
-			<a href="{{ path('jeux_index') }}" class="btn btn-primary btn-lg square" role="button">jeux CRUD</a>
 			<a href="{{ path('monprofil') }}" class="btn btn-primary btn-lg square" role="button">monprofil</a>
 			<a href="{{ path('quisommenous') }}" class="btn btn-primary btn-lg square" role="button">quisommenous</a>
-			<a href="{{ path('app_register') }}" class="btn btn-primary btn-lg square" role="button">app_register</a>
-			<a href="{{ path('app_login') }}" class="btn btn-primary btn-lg square" role="button">app_login</a>
-			<a href="{{ path('admin') }}" class="btn btn-primary btn-lg square" role="button">admin</a>
-			<a href="{{ path('admin_uploadgame') }}" class="btn btn-primary btn-lg square" role="button">admin upload game</a>
-			
+			<a href="{{ path('app_register') }}" class="btn btn-primary btn-lg square" role="button">S'enregistrer</a>
+			<a href="{{ path('jeux_index') }}" class="btn btn-primary btn-lg square" role="button">jeux CRUD</a>
 			<a href="{{ path('user_index') }}" class="btn btn-primary btn-lg square" role="button">user crud</a>
 			<a href="{{ path('upload_game_index') }}" class="btn btn-primary btn-lg square" role="button">upload crud</a>
 		{% endblock %}

@@ -12,7 +12,6 @@ var timer = document.getElementById('time');
     .sort( (a,b) => a[1]-b[1]) 
     .forEach(function(pic){
         let p = document.createElement('img');
-        console.log(p);
         p.src = 'img/pics/spr0.png';
         p.src0 = 'img/pics/spr'+pic[0]+'.png';
         p.clicked = false;
@@ -30,7 +29,6 @@ function check(){
     clearTimeout(timer);
     p1.clicked = p2.clicked = false;
     if (p1.src==p2.src){
-      console.log(p1,p2);
         // remove pics
         memory.replaceChild(document.createElement('span'), p1);
         memory.replaceChild(document.createElement('span'), p2);
@@ -49,7 +47,9 @@ function check(){
       
       let scoreafficher = document.getElementById('txtmodalgagner');
       scoreafficher.textContent += ' Vous avez Gagné ! Votre score est de ' + points  ;
-      console.log(scoreafficher);
+      console.log(document.getElementById('txtmodalgagner'));
+
+      scoreafficher.setAttribute("data", points);
     }
 }
 

@@ -15,7 +15,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
-  <a class="navbar-brand">Boo</a>
+  <a class="navbar-brand" href="/">Boo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,18 +23,15 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{ path('choix_jeux_home') }}">Home
+        <a class="nav-link" href="{{ path('choix_jeux_home') }}">Jeux
           <span class="sr-only">(current)</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ path('monprofil') }}">Profil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ path('quisommenous') }}">About</a>
+        <a class="nav-link" href="{{ path('quisommenous') }}">Qui sommes-nous ?</a>
       </li>
 	   <li class="nav-item">
         <a class="nav-link" href="{{ path('contact') }}">Contact</a>
@@ -76,6 +73,8 @@
 			<a href="{{ path('jeux_index') }}" class="btn btn-primary btn-lg square" role="button">jeux CRUD</a>
 			<a href="{{ path('user_index') }}" class="btn btn-primary btn-lg square" role="button">user crud</a>
 			<a href="{{ path('upload_game_index') }}" class="btn btn-primary btn-lg square" role="button">upload crud</a>
+			<a href="{{ path('app_login') }}" class="btn btn-primary btn-lg square" role="button">Page login</a>
+     
 		{% endblock %}
 
 

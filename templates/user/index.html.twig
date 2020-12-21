@@ -4,6 +4,9 @@
 
 {% block body %}
 
+      {% if is_granted('ROLE_ADMIN') %}
+     
+     
 
     <h1>Interface Utilisateur</h1>
 
@@ -40,4 +43,7 @@
     </table>
 
     <a href="{{ path('user_new') }}">Create new</a>
+ {%endif%}
+
+
 {% endblock %}

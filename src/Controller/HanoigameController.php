@@ -17,4 +17,31 @@ class HanoigameController extends AbstractController
             'controller_name' => 'HanoigameController',
         ]);
     }
+    
+
+    
+    /* 
+    /**
+     * @Route("/hanoigame/new")
+     *//* 
+    public function new(Request $request)
+    {
+        $score = new Jeux();
+        $score->setTitre('Hanoi');
+        $score->setScore($valeur);
+    
+    
+        $score->handleRequest($request);
+    
+        
+        $em = $this->getDoctrine()->getManager();
+            
+        $em->persist($score);
+        $em->flush();
+        
+    
+        return $this->render('default/new.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }  */
 }

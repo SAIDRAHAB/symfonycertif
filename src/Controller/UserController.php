@@ -27,7 +27,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
+     *
      * 
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
@@ -82,7 +82,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
+     *
      * 
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
      */

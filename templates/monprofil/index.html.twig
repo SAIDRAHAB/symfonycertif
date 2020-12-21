@@ -11,21 +11,20 @@
 <div class="form-group">
   <fieldset disabled="">
     <label class="control-label" for="disabledInput">Email</label>
-    <input class="form-control" id="disabledInput" type="text" placeholder="user.email" disabled="">
+    <input class="form-control" id="disabledInput" type="text" placeholder="{{app.user.email}}" disabled="">
   </fieldset>
 </div>
 
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="user.password">
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{app.user.password}}">
     </div>
 
 <div class="form-group">
   <label class="col-form-label" for="inputDefault">Pseudo</label>
-  <input type="text" class="form-control" placeholder="user.Pseudo" id="inputDefault">
-</div>{# 
- <a href="{{ path('user_edit', {'id': user.id}) }}">edit user</a>
- #}
+  <input type="text" class="form-control" placeholder="{{app.user.Pseudo}}" id="inputDefault">
+</div>
+
 
 
 {% endblock %}

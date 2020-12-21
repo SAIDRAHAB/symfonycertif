@@ -14,7 +14,7 @@ class JeuxType extends AbstractType
         $builder
             ->add('Titre')
             ->add('Score')
-            ->add('relation')
+            
         ;
     }
 

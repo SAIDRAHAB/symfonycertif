@@ -5,6 +5,10 @@ var step = 1;
 var p1,p2;
 var timer = document.getElementById('time');
 
+document.getElementById('jeux_Score').setAttribute("value", step);
+document.getElementById('jeux_Score').setAttribute("data", step);
+console.log(document.getElementById('jeux_Titre'));
+console.log(document.getElementById('jeux_Score'));
 
 '112233445566'
     .split('')
@@ -44,12 +48,15 @@ function check(){
       score.textContent += ' Gagné !'
      
       $('#modalgagner').modal('show');
-      
       let scoreafficher = document.getElementById('txtmodalgagner');
       scoreafficher.textContent += ' Vous avez Gagné ! Votre score est de ' + points  ;
-      console.log(document.getElementById('txtmodalgagner'));
-
       scoreafficher.setAttribute("data", points);
+      
+document.getElementById('jeux_Score').setAttribute("value", points);
+document.getElementById('jeux_Titre').setAttribute("value", "hanoi");
+
+console.log(document.getElementById('jeux_Titre'));
+console.log(document.getElementById('jeux_Score'));
     }
 }
 

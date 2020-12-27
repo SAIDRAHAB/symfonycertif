@@ -16,7 +16,7 @@ class AdminFormType extends AbstractType
             ->add('pseudo')
             ->add('roles')
             ->add('password')
-            ->add('jeuxes')
+            ->add('jeuxobjet')
         ;
     }
 

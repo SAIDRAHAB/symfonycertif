@@ -43,16 +43,17 @@ class User implements UserInterface
      */
     private $password;
 
+
     /**
-     * @ORM\ManyToMany(targetEntity=Jeux::class, mappedBy="relation")
+     * @ORM\OneToMany(targetEntity=Jeux::class, mappedBy="Userid", orphanRemoval=true)
      */
-    private $jeuxes;
+    private $Jeuxobjet;
 
   
 
     public function __construct()
     {
-        $this->jeuxes = new ArrayCollection();
+        $this->Jeuxobjet = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -143,28 +144,33 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
+
+
     /**
      * @return Collection|Jeux[]
      */
-    public function getJeuxes(): Collection
+    public function getJeuxobjet(): Collection
     {
-        return $this->jeuxes;
+        return $this->Jeuxobjet;
     }
 
-    public function addJeux(Jeux $jeux): self
+    public function addJeuxobjet(Jeux $jeuxobjet): self
     {
-        if (!$this->jeuxes->contains($jeux)) {
-            $this->jeuxes[] = $jeux;
-            $jeux->addRelation($this);
+        if (!$this->Jeuxobjet->contains($jeuxobjet)) {
+            $this->Jeuxobjet[] = $jeuxobjet;
+            $jeuxobjet->setUserid($this);
         }
 
         return $this;
     }
 
-    public function removeJeux(Jeux $jeux): self
+    public function removeJeuxobjet(Jeux $jeuxobjet): self
     {
-        if ($this->jeuxes->removeElement($jeux)) {
-            $jeux->removeRelation($this);
+        if ($this->Jeuxobjet->removeElement($jeuxobjet)) {
+            // set the owning side to null (unless already changed)
+            if ($jeuxobjet->getUserid() === $this) {
+                $jeuxobjet->setUserid(null);
+            }
         }
 
         return $this;

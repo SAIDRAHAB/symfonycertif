@@ -1,0 +1,39 @@
+
+
+				{{ form_widget(form.score, { 'attr' : { 'style':'display:none'} }) }}
+                
+					<label for="{{ form.name.vars.id }}"
+    class="{{ form.name.vars.required ? 'required' }}">
+    {{ form.name.vars.label }}
+</label>
+
+
+    /**
+     * @Route("/new", name="jeux_new")
+     */
+    public function new(Request $request, Jeux $jeux): Response
+    {
+        $jeux = new Jeux();
+        $form = $this->createForm(JeuxType::class, $jeux);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+          $this->getDoctrine()->getManager()->flush();
+
+
+            return $this->redirectToRoute('jeux_index');
+        }
+
+        return $this->render('jeux/new.html.twig', [
+            'jeux' => $jeux,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    <form method="post" action="{{ path('jeux_delete', {'id': jeux.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ jeux.id) }}">
+    <button class="btn">Delete</button>
+</form>
+
+style="display: none;"

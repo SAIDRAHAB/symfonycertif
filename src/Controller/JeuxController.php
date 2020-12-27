@@ -21,7 +21,7 @@ class JeuxController extends AbstractController
     public function index(JeuxRepository $jeuxRepository): Response
     {
         return $this->render('jeux/index.html.twig', [
-            'jeuxes' => $jeuxRepository->findAll(),
+            'jeuxobjet' => $jeuxRepository->findAll(),
         ]);
     }
 

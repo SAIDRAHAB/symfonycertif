@@ -29,10 +29,13 @@ class Jeux
      */
     private $Score;
 
+    
+
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="jeuxes")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Jeuxobjet")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $relation;
+    private $Userid;
 
     public function __construct()
     {
@@ -68,31 +71,17 @@ class Jeux
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getRelation(): Collection
+   
+
+    public function getUserid(): ?User
     {
-        return $this->relation;
+        return $this->Userid;
     }
 
-    public function addRelation(User $relation): self
+    public function setUserid(?User $Userid): self
     {
-        if (!$this->relation->contains($relation)) {
-            $this->relation[] = $relation;
-        }
+        $this->Userid = $Userid;
 
         return $this;
-    }
-
-    public function removeRelation(User $relation): self
-    {
-        $this->relation->removeElement($relation);
-
-        return $this;
-    }
-    public function __toString()
-    {
-        return $this->id;
     }
 }

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié
+{% endblock %}
+
+{% block body %}
+
+	<link href="{{ asset('css/login/loginhome.css') }}" rel="stylesheet"/>
+	<div>
+		{% for message in app.flashes('warning') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		<div class="main">
+			<div class="container">
+				<center>
+					<div class="middle">
+						<div id="login">
+							<form method="post">
+								<fieldset class="clearfix" style="margin-top: 60px;">
+									{{form(emailForm)}}
+									</fieldset>
+									<div class="clearfix"></div>
+								</form>
+
+								<div class="clearfix"></div>
+
+							</div>
+							<!-- end login -->
+							<div class="logo">
+								<img src="{{ asset('img/logo_boo2.png') }}" alt="LOGO" width="200" height="200"/>
+
+								<div class="clearfix"></div>
+							</div>
+
+						</div>
+					</center>
+				</div>
+			</div>
+
+		{% endblock %}

@@ -1,41 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Jeux index{% endblock %}
+{% block title %}Jeux index
+{% endblock %}
 
 {% block body %}
 
 
-<div class="container"> 
-    <h1>Jeux index</h1>
+	<div class="container">
+		<h1>Jeux index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Score</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for jeux in jeuxobjet %}
-            <tr>
-                <td>{{ jeux.id }}</td>
-                <td>{{ jeux.Titre }}</td>
-                <td>{{ jeux.Score }}</td>
-                <td>
-                    <a href="{{ path('jeux_show', {'id': jeux.id}) }}">show</a>
-                    <a href="{{ path('jeux_edit', {'id': jeux.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Titre</th>
+					<th>Score</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for jeux in jeuxobjet %}
+					<tr>
+						<td>{{ jeux.id }}</td>
+						<td>{{ jeux.Titre }}</td>
+						<td>{{ jeux.Score }}</td>
+						<td>
+							<a href="{{ path('jeux_show', {'id': jeux.id}) }}">show</a>
+							<a href="{{ path('jeux_edit', {'id': jeux.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="4">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    <a href="{{ path('jeux_new') }}">Create new</a>
-    </div>
+		<a href="{{ path('jeux_new') }}">Create new</a>
+	</div>
 {% endblock %}

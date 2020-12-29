@@ -20,6 +20,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('pseudo')
             ->add('email')
+            ->add('numero_adeli')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -48,8 +49,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

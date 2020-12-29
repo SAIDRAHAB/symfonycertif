@@ -49,6 +49,16 @@ class User implements UserInterface
      */
     private $Jeuxobjet;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $reset_token;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Numero_adeli;
+
   
 
     public function __construct()
@@ -172,6 +182,30 @@ class User implements UserInterface
                 $jeuxobjet->setUserid(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->reset_token;
+    }
+
+    public function setResetToken(?string $reset_token): self
+    {
+        $this->reset_token = $reset_token;
+
+        return $this;
+    }
+
+    public function getNumeroAdeli(): ?string
+    {
+        return $this->Numero_adeli;
+    }
+
+    public function setNumeroAdeli(string $Numero_adeli): self
+    {
+        $this->Numero_adeli = $Numero_adeli;
 
         return $this;
     }

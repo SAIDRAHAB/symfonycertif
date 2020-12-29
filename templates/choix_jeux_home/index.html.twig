@@ -1,37 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ChoixJeuxHomeController!{% endblock %}
+{% block title %}Hello ChoixJeuxHomeController!
+{% endblock %}
 
 {% block body %}
 
-<div class="card-columns" style="margin-left: 60px;margin-top: 60px;">
+	{% for message in app.flashes('message') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div class="card-columns" style="margin-left: 60px;margin-top: 60px;">
 
 
-<div class="card text-white bg-success mb-3" style="max-width: 20rem;">
-  <div class="card-header">Memory</div>
-  <div class="card-body">
-    <h4 class="card-title">Jeux de memoire</h4>
-    <p class="card-text">Exercer votre capacité à memorisé les cartes identiques</p>
-    <a href="{{ path('memory') }}"><p class="card-text">Jouer</p></a>
-  </div>
-</div>
-<div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
-  <div class="card-header">Tour de Hanoi</div>
-  <div class="card-body">
-    <h4 class="card-title">Danger card title</h4>
-    <p class="card-text">La Tour de Hanoï est utilisée dans la recherche en psychologie notamment au travers de la résolution de problème.
-     Ce test permet ainsi l'évaluation des fonctions exécutives, comme la planification, la mémoire de travail et l'inhibition.</p>
-     <a href="{{ path('hanoigame') }}"><p class="card-text">Jouer</p></a>
-  </div>
-</div>
-<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
-  <div class="card-header">Mathematics</div>
-  <div class="card-body">
-    <h4 class="card-title">Calcul Mathematics</h4>
-    <p class="card-text">Les enfants présentant un trouble dans l'apprentissage du calcul ne calculent pas, ils comptent. Compter avec ou sans les doigts empêche de reconnaître les relations mathématiques et fait que l'automatisation de la pratique des quatre opérations de base n'est jamais acquise.</p>
-     <a href="{{ path('mathgame') }}"><p class="card-text">Jouer</p></a>
-  </div>
-</div>
+		<div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+			<div class="card-header">Memory</div>
+			<div class="card-body">
+				<h4 class="card-title">Jeux de memoire</h4>
+				<p class="card-text">Exercer votre capacité à memorisé les cartes identiques</p>
+				<a href="{{ path('memory') }}">
+					<p class="card-text">Jouer</p>
+				</a>
+			</div>
+		</div>
+		<div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+			<div class="card-header">Tour de Hanoi</div>
+			<div class="card-body">
+				<h4 class="card-title">Danger card title</h4>
+				<p class="card-text">La Tour de Hanoï est utilisée dans la recherche en psychologie notamment au travers de la résolution de problème.
+					     Ce test permet ainsi l'évaluation des fonctions exécutives, comme la planification, la mémoire de travail et l'inhibition.</p>
+				<a href="{{ path('hanoigame') }}">
+					<p class="card-text">Jouer</p>
+				</a>
+			</div>
+		</div>
+		<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+			<div class="card-header">Mathematics</div>
+			<div class="card-body">
+				<h4 class="card-title">Calcul Mathematics</h4>
+				<p class="card-text">Les enfants présentant un trouble dans l'apprentissage du calcul ne calculent pas, ils comptent. Compter avec ou sans les doigts empêche de reconnaître les relations mathématiques et fait que l'automatisation de la pratique des quatre opérations de base n'est jamais acquise.</p>
+				<a href="{{ path('mathgame') }}">
+					<p class="card-text">Jouer</p>
+				</a>
+			</div>
+		</div>
 
-</div>
+	</div>
 {% endblock %}

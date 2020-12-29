@@ -20,10 +20,10 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(Request $request,MailerInterface $mailer)
+    public function index(Request $request, MailerInterface $mailer)
     {
 
-         
+
 
         $formulaire_contact = $this->createFormBuilder()
             ->add('email', EmailType::class)
@@ -32,30 +32,29 @@ class ContactController extends AbstractController
             ->add('send', SubmitType::class)
             ->getForm();
 
-            $contact = $formulaire_contact->handleRequest($request);
+        $contact = $formulaire_contact->handleRequest($request);
 
-            if($formulaire_contact->isSubmitted() && $formulaire_contact->isValid()){
-                $email = (new TemplatedEmail())
-                    ->from($contact->get('email')->getData())
-                    ->to('saidrahab@hotmail.fr')
-                    ->subject($contact->get('sujet')->getData())
-                    ->htmlTemplate('contact/contact.html.twig')
-                    ->context([
-                        'mail' => $contact->get('email')->getData(),
-                        'sujet' => $contact->get('sujet')->getData(),
-                        'message' => $contact->get('message')->getData(),
-                    ])
-                ;
-                
-                $mailer->send($email);
-                
-                $this->addFlash('message', 'Mail envoyé');
-                return $this->redirectToRoute('choix_jeux_home');
-            }
-    
+        if ($formulaire_contact->isSubmitted() && $formulaire_contact->isValid()) {
+            $email = (new TemplatedEmail())
+                ->from('admin@said-rahab.fr')
+                ->to('admin@said-rahab.fr')
+                ->subject('Message du formulaire de contact')
+                ->htmlTemplate('contact/contact.html.twig')
+                ->context([
+                    'mail' => $contact->get('email')->getData(),
+                    'sujet' => $contact->get('sujet')->getData(),
+                    'message' => $contact->get('message')->getData(),
+                ]);
+
+            $mailer->send($email);
+
+            $this->addFlash('message', 'Mail envoyé');
+            return $this->redirectToRoute('choix_jeux_home');
+        }
+
 
         return $this->render('contact/index.html.twig', [
-            
+
             'contact_formulaire' => $formulaire_contact->createView(),
         ]);
     }

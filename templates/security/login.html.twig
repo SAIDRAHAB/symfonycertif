@@ -4,8 +4,25 @@
 {% endblock %}
 
 {% block body %}
-<link href="{{ asset('css/login/loginhome.css') }}" rel="stylesheet"/>
+
+	<link href="{{ asset('css/login/loginhome.css') }}" rel="stylesheet"/>
 	<div class="main">
+
+		{% for message in app.flashes('danger') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('warning') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('message') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
 		<div class="container">
 			<center>
 				<div class="middle">
@@ -33,9 +50,9 @@
 								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 								<div>
-									{# <span style="width:48%; text-align:left;  display: inline-block;">
-										<a class="small-text" href="#">Forgot password?</a>
-									</span> #}
+									<span style="width:48%; text-align:left;  display: inline-block;">
+										<a class="small-text" href="{{ path('app_forgotten_password') }}">Forgot password?</a>
+									</span>
 									<span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Sign In"></span>
 								</div>
 							</fieldset>

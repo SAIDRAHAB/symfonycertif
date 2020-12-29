@@ -25,23 +25,21 @@ class MonprofilController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(User::class);
 
         dump($repository);
-        
-        
+
+
         $Jeux = $this->getDoctrine()
-        ->getRepository(Jeux::class);
-        
+            ->getRepository(Jeux::class);
+
         dump($Jeux);
 
-        
-        $listescore = $jeuxRepository->findBy(array('Userid' => $this->getUser() ));
+
+        $listescore = $jeuxRepository->findBy(array('Userid' => $this->getUser()));
         dump($listescore);
         return $this->render('monprofil/index.html.twig', [
             'controller_name' => 'MonprofilController',
             'listescore' => $listescore,
             'user' => $user,
-            
+
         ]);
     }
-
-
 }

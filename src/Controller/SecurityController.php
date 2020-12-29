@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ResetPassType;
+use Symfony\Component\Mime\Email;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,7 +57,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/oubli-pass", name="app_forgotten_password")
      */
-    public function oubliPass(Request $request, UserRepository $users, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator): Response
+    public function oubliPass(Request $request, UserRepository $users, MailerInterface $mailer2, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator): Response
     {
         // On initialise le formulaire
         $form = $this->createForm(ResetPassType::class);
@@ -98,16 +101,34 @@ class SecurityController extends AbstractController
 
 
             // On génère l'e-mail
-            $message = (new \Swift_Message('Mot de passe oublié'))
+            /*  $message = (new \Swift_Message('Mot de passe oublié'))
                 ->setFrom('postmaster@said-rahab.fr')
                 ->setTo($user->getEmail())
                 ->setBody(
                     "<p>Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Boo (said-rahab.fr). Veuillez cliquer sur le lien suivant : </p>" . $url,
                     'text/html'
+                ); */
+            /*  $message2 = (new TemplatedEmail())
+                ->from('admin@said-rahab.fr')
+                ->to($user->getEmail())
+                ->subject('Message de reinitianlisation de mot de passe')
+                ->htmlTemplate('security/motdepasseoublier.html.twig')
+                ->context([
+                    'mail' => $form->get('email')->getData(),
+                ]); */
+            $email = (new Email())
+                ->from('admin@said-rahab.fr')
+                ->to($user->getEmail())
+                ->priority(Email::PRIORITY_HIGH)
+                ->subject('Demande de réinitialisation')
+                ->html(
+                    "<p>Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Boo (said-rahab.fr). Veuillez cliquer sur le lien suivant : </p>" . $url,
+                    'text/html'
                 );
 
+
             // On envoie l'e-mail
-            $mailer->send($message);
+            $mailer2->send($email);
 
             // On crée le message flash de confirmation
             $this->addFlash('message', 'E-mail de réinitialisation du mot de passe envoyé !');

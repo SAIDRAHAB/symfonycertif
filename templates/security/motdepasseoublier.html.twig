@@ -19,7 +19,7 @@
 					<div class="middle">
 						<div id="login">
 							<form method="post">
-								<fieldset class="clearfix" style="margin-top: 60px;">
+								<fieldset class="clearfix text-warning" style="margin-top: 60px;">
 									{{form(emailForm)}}
 									</fieldset>
 									<div class="clearfix"></div>
@@ -29,8 +29,8 @@
 
 							</div>
 							<!-- end login -->
-							<div class="logo">
-								<img src="{{ asset('img/logo_boo2.png') }}" alt="LOGO" width="200" height="200"/>
+							<div class="logo" style="margin-top: 25px;">
+								<img src="{{ asset('img/ghost128px.png') }}" width="128" height="128" alt="boo">
 
 								<div class="clearfix"></div>
 							</div>
@@ -41,3 +41,5 @@
 			</div>
 
 		{% endblock %}
+
+		{% block footer %}{% endblock %}

@@ -9,13 +9,14 @@
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 			{# <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css" crossorigin="anonymous">
-																																				   #}
+																																																																																																																																																																																																																														   #}
 
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
 		{% endblock %}
 
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
-			<a class="navbar-brand" href="/">Boo</a>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+			<a class="navbar-brand" href="/"><img src="{{ asset('img/ghost.png') }}" width="32" height="32" alt="boo"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -55,44 +56,112 @@
 						</ul>
 					</div>
 				</nav>
-
-			</head>
-			<body>
-
-
-				{% block body %}
-					<h1>Les routes</h1>
-					<a href="{{ path('contact') }}" class="btn btn-primary btn-lg square" role="button">contact</a>
-					<a href="{{ path('memory') }}" class="btn btn-primary btn-lg square" role="button">memory jeu</a>
-					<a href="{{ path('smileygame') }}" class="btn btn-primary btn-lg square" role="button">Smiley jeu</a>
-					<a href="{{ path('hanoigame') }}" class="btn btn-primary btn-lg square" role="button">Hanoi jeu</a>
-					<a href="{{ path('mathgame') }}" class="btn btn-primary btn-lg square" role="button">math jeu</a>
-					<a href="{{ path('monprofil') }}" class="btn btn-primary btn-lg square" role="button">monprofil</a>
-					<a href="{{ path('quisommenous') }}" class="btn btn-primary btn-lg square" role="button">quisommenous</a>
-					<a href="{{ path('app_register') }}" class="btn btn-primary btn-lg square" role="button">S'enregistrer</a>
-					<a href="{{ path('jeux_index') }}" class="btn btn-primary btn-lg square" role="button">jeux CRUD</a>
-					<a href="{{ path('user_index') }}" class="btn btn-primary btn-lg square" role="button">user crud</a>
-					<a href="{{ path('upload_game_index') }}" class="btn btn-primary btn-lg square" role="button">upload crud</a>
-					<a href="{{ path('app_login') }}" class="btn btn-primary btn-lg square" role="button">Page login</a>
-					<a href="{{ path('app_forgotten_password') }}" class="btn btn-primary btn-lg square" role="button">resetpass</a>
-
-					<a href="{{ path('pageprincipal') }}" class="btn btn-primary btn-lg square" role="button">Page landing</a>
-
-				{% endblock %}
-
-
-				{% block javascripts %}
-					{{ encore_entry_script_tags('app') }}
-				{% endblock %}
-				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-				<link
-				rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-			{#     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous"></script>
-																																				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-timer/1.3.5/angular-timer.min.js" integrity="sha512-pzZj9xuCkPhVlGzULICfTRX/hAlY52EzaoKR3afWBALZ+udJl1osGMUr7i1ckOP6LjRABStvIoive4wxcMX+Nw==" crossorigin="anonymous"></script>
-																																				 	 #}
-			</body>
-		</html>
+			</div>
+		</nav>
 	</head>
+
+
+	{% block body %}
+		<h1>Les routes</h1>
+		<a href="{{ path('contact') }}" class="btn btn-primary btn-lg square" role="button">contact</a>
+		<a href="{{ path('memory') }}" class="btn btn-primary btn-lg square" role="button">memory jeu</a>
+		<a href="{{ path('smileygame') }}" class="btn btn-primary btn-lg square" role="button">Smiley jeu</a>
+		<a href="{{ path('hanoigame') }}" class="btn btn-primary btn-lg square" role="button">Hanoi jeu</a>
+		<a href="{{ path('mathgame') }}" class="btn btn-primary btn-lg square" role="button">math jeu</a>
+		<a href="{{ path('monprofil') }}" class="btn btn-primary btn-lg square" role="button">monprofil</a>
+		<a href="{{ path('quisommenous') }}" class="btn btn-primary btn-lg square" role="button">quisommenous</a>
+		<a href="{{ path('app_register') }}" class="btn btn-primary btn-lg square" role="button">S'enregistrer</a>
+		<a href="{{ path('jeux_index') }}" class="btn btn-primary btn-lg square" role="button">jeux CRUD</a>
+		<a href="{{ path('user_index') }}" class="btn btn-primary btn-lg square" role="button">user crud</a>
+		<a href="{{ path('upload_game_index') }}" class="btn btn-primary btn-lg square" role="button">upload crud</a>
+		<a href="{{ path('app_login') }}" class="btn btn-primary btn-lg square" role="button">Page login</a>
+		<a href="{{ path('app_forgotten_password') }}" class="btn btn-primary btn-lg square" role="button">resetpass</a>
+
+		<a href="{{ path('pageprincipal') }}" class="btn btn-primary btn-lg square" role="button">Page landing</a>
+
+
+	{% endblock %}
+
+	{% block footer %}
+		<footer class="container py-4 pb-5 mx-auto" style="bottom:0; position:absolute;">
+			<div class="row">
+				<div class="col-md-3">
+					<title>Product</title>
+					<img src="{{ asset('img/ghost128px.png') }}" width="128" height="128" alt="boo">
+
+					<p>
+						We are a young company always looking for new and creative ideas to help you with our products in your everyday work.
+					</p>
+					<small class="d-block mb-3 text-muted">&copy; 2020</small>
+				</div>
+				<div class="col-md-3 col-lg-3 ">
+					<h3>Contact</h3>
+					<p>
+						<i class="fas fa-map-marker-alt"></i>
+						Villa Adrienne, 75014 Paris France</p>
+					<p>
+						<i class="fas fa-phone"></i>
+						Phone: +33 632 12 68 47</p>
+					<p>
+						<i class="fas fa-envelope"></i>
+						Email:
+						<a href="mailto:admin@said-rahab.fr">Admin@said-rahab.fr</a>
+					</p>
+					<p>
+						<i class="fab fa-discord"></i>
+						Discord: Said rahab#2866</p>
+				</div>
+				<div class="col-md-3">
+					<div class="col-6 col-md">
+						<h5>About</h5>
+						<ul class="list-unstyled text-small">
+							<li>
+								<a class="link-secondary" href="#">Team</a>
+							</li>
+							<li>
+								<a class="link-secondary" href="#">Locations</a>
+							</li>
+							<li>
+								<a class="link-secondary" href="https://www.privacypolicies.com/live/9f6a1542-18d1-42ef-b174-06304302e41b">Privacy</a>
+							</li>
+							<li>
+								<a class="link-secondary" href="#">Terms</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-lg-3 ">
+					<h3>Follow us</h3>
+					<p>
+						<a href="#">
+							<i class="fab fa-facebook"></i>
+						</a>
+						<a href="#">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="#">
+							<i class="fab fa-google-plus-g"></i>
+						</a>
+						<a href="#">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a href="#">
+							<i class="fab fa-pinterest"></i>
+						</a>
+					</p>
+				</div>
+			</div>
+
+		</footer>
+	{% endblock %}
+
+	{% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+	{% endblock %}
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 </html>

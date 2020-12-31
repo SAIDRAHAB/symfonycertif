@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Hello ContactController!
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
-	    {% for message in app.flashes('message') %}
-        <div class="alert alert-success">
-                {{ message }}
-            </div>
-    	{% endfor %}
-<div class="example-wrapper">
-    <h1 class="text-center">Contacter l'administrateur du site </h1>
-    {{ form(contact_formulaire) }}
+	<div class="container">
+		{% for message in app.flashes('message') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+		<div class="example-wrapper" style="margin-bottom: 200px">
+			<h1 class="text-center mt-5 mb-5">Contacter l'administrateur du site
+			</h1>
+			{{ form(contact_formulaire) }}
 
 
-</div>
-{% endblock %}
+			</div>
+		{% endblock %}

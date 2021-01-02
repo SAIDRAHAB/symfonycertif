@@ -5,18 +5,20 @@
 
 {% block body %}
 
-	<div class="container">
+	<div class="container my-5 py-5">
 		{% for message in app.flashes('message') %}
 			<div class="alert alert-success">
 				{{ message }}
 			</div>
 		{% endfor %}
-		<div class="example-wrapper" style="margin-bottom: 200px">
-			<h1 class="text-center mt-5 mb-5">Contacter l'administrateur du site</h1>
-			{{ form(contact_formulaire) }}
+		<div class="example-wrapper">
+			<h1 class="text-center my-3">Contacter l'administrateur du site</h1>
+
+			<div class="my-5 py-5">
+				{{ form(contact_formulaire) }}
 
 
+				</div>
 			</div>
 		</div>
-	</div>
-{% endblock %}
+	{% endblock %}

@@ -22,54 +22,18 @@
 			<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 		</div>
 
-		{# 
-																																																								<div class="card-columns" style="margin-left: 60px;margin-top: 60px;">
-																																																						
-																																																						
-																																																									<div class="card text-white bg-success mb-3" style="max-width: 20rem;">
-																																																										<div class="card-header">Memory</div>
-																																																										<div class="card-body">
-																																																											<h4 class="card-title">Jeux de memoire</h4>
-																																																											<p class="card-text">Exercer votre capacité à memorisé les cartes identiques</p>
-																																																											<a href="{{ path('memory') }}">
-																																																												<p class="card-text">Jouer</p>
-																																																											</a>
-																																																										</div>
-																																																									</div>
-																																																									<div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
-																																																										<div class="card-header">Tour de Hanoi</div>
-																																																										<div class="card-body">
-																																																											<h4 class="card-title">Danger card title</h4>
-																																																											<p class="card-text">La Tour de Hanoï est utilisée dans la recherche en psychologie notamment au travers de la résolution de problème.
-																																																																						     Ce test permet ainsi l'évaluation des fonctions exécutives, comme la planification, la mémoire de travail et l'inhibition.</p>
-																																																											<a href="{{ path('hanoigame') }}">
-																																																												<p class="card-text">Jouer</p>
-																																																											</a>
-																																																										</div>
-																																																									</div>
-																																																									<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
-																																																										<div class="card-header">Mathematics</div>
-																																																										<div class="card-body">
-																																																											<h4 class="card-title">Calcul Mathematics</h4>
-																																																											<p class="card-text">Les enfants présentant un trouble dans l'apprentissage du calcul ne calculent pas, ils comptent. Compter avec ou sans les doigts empêche de reconnaître les relations mathématiques et fait que l'automatisation de la pratique des quatre opérations de base n'est jamais acquise.</p>
-																																																											<a href="{{ path('mathgame') }}">
-																																																												<p class="card-text">Jouer</p>
-																																																											</a>
-																																																										</div>
-																																																									</div>
-																																																						
-																																																								</div>
-																																																						 #}
-
 		<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-			<div class="bg-dark me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center  overflow-hidden">
 				<div class="my-3 py-3">
 					<h2 class="display-5">Memory</h2>
 					<p class="lead">Exercer votre capacité à memorisé les cartes</p>
 
 					<a class="btn btn-outline-secondary" href="{{ path('memory') }}">Jouer</a>
 				</div>
-				<div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				<div class="mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+
+					<img src="{{ asset('img/card.png') }}" width="128" height="128" alt="hanoi">
+				</div>
 			</div>
 			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 				<div class="my-3 p-3">
@@ -78,7 +42,9 @@
 
 					<a class="btn btn-outline-secondary" href="{{ path('hanoigame') }}">Jouer</a>
 				</div>
-				<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+					<img src="{{ asset('img/abacus.png') }}" width="128" height="128" alt="hanoi">
+				</div>
 			</div>
 			<div class="bg-light me-md-3 mx-auto pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 				<div class="my-3 p-3">
@@ -87,7 +53,10 @@
 
 					<a class="btn btn-outline-secondary" href="{{ path('mathgame') }}">Jouer</a>
 				</div>
-				<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				<div class="mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+
+					<img src="{{ asset('img/maths.png') }}" width="128" height="128" alt="math">
+				</div>
 			</div>
 		</div>
 	</main>

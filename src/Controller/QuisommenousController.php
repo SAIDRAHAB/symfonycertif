@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class QuisommenousController extends AbstractController
+class QuisommenousController extends AbstractController //controlleur page qui somme nous
 {
     /**
      * @Route("/quisommenous", name="quisommenous")

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/jeux")
  */
-class JeuxController extends AbstractController
+class JeuxController extends AbstractController //controlleur de l'ajout des jeux par l'admin
 {
     /**
      * @Route("/", name="jeux_index", methods={"GET"})
@@ -83,7 +83,7 @@ class JeuxController extends AbstractController
      */
     public function delete(Request $request, Jeux $jeux): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$jeux->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $jeux->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($jeux);
             $entityManager->flush();

@@ -14,7 +14,7 @@ use App\Repository\JeuxRepository;
 use App\Form\JeuxType;
 use App\Entity\User;
 
-class MemoryController extends AbstractController
+class MemoryController extends AbstractController //controlleur du jeu memory avec l'enregistrement du score en bdd
 {
     /**
      * @Route("/memory", name="memory")

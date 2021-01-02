@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MathgameController extends AbstractController
+class MathgameController extends AbstractController //controlleur du jeux mathematics
 {
     /**
      * @Route("/mathgame", name="mathgame")

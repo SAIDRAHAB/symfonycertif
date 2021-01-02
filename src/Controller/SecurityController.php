@@ -17,7 +17,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
-class SecurityController extends AbstractController
+class SecurityController extends AbstractController //controlleur du login logout mdp-oublier mdp-reset
 {
     /**
      * @Route("/login", name="app_login")

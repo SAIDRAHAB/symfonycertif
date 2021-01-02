@@ -1,16 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User
+{% block title %}Modifier
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center mt-5">Modifier mes informations</h1>
 
-	{{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="container bg-light">
+		<h1 class="text-center mt-5 mb-5 ">Modifier mes informations</h1>
 
-	<a href="{{ path('user_index') }}">back to list</a>
+		{{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
+		<a class="btn btn-primary" href="{{ path('user_index') }}">Revenir au profil</a>
+
+	</div>
 	{% if is_granted('ROLE_ADMIN') %}
 		{{ include('user/_delete_form.html.twig') }}
 		{%endif%}
 	{% endblock %}
+
+	{% block footer %}{% endblock %}

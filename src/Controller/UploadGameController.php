@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/upload/game")
  */
-class UploadGameController extends AbstractController
+class UploadGameController extends AbstractController //controlleur d'ajout de jeu js sur le site
 {
     /**
      * @Route("/", name="upload_game_index", methods={"GET"})
@@ -37,21 +37,18 @@ class UploadGameController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form['upload_file']->getData();
-      if ($file) 
-      {
-        $file_name = $file_uploader->upload($file);
-        if (null !== $file_name) // for example
-        {
-          $directory = $file_uploader->getTargetDirectory();
-          $full_path = $directory.'/'.$file_name;
-          // Do what you want with the full path file...
-          // Why not read the content or parse it !!!
-        }
-        else
-        {
-          // Oups, an error occured !!!
-        }
-      }
+            if ($file) {
+                $file_name = $file_uploader->upload($file);
+                if (null !== $file_name) // for example
+                {
+                    $directory = $file_uploader->getTargetDirectory();
+                    $full_path = $directory . '/' . $file_name;
+                    // Do what you want with the full path file...
+                    // Why not read the content or parse it !!!
+                } else {
+                    // Oups, an error occured !!!
+                }
+            }
 
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -102,7 +99,7 @@ class UploadGameController extends AbstractController
      */
     public function delete(Request $request, UploadGame $uploadGame): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$uploadGame->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $uploadGame->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($uploadGame);
             $entityManager->flush();

@@ -12,35 +12,33 @@ use Symfony\Component\Validator\Constraints\File;
 
 class UploadGameType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            ->add('Titre')
-            ->add('Description')
-            ->add('upload_file', FileType::class, [
-                'label' => 'Fichier à Uploader',
-                'mapped' => false, // Tell that there is no Entity to link
-                'required' => true,
-                'constraints' => [
-                  new File([ 
-                    'mimeTypes' => [ // We want to let upload only txt, csv or Excel files
-                      'text/javascript', 
-                      'text/plain',
-                      'text/x-java',
-                    ],
-                    'mimeTypesMessage' => "This document isn't valid.",
-                  ])
-                ],
-              ])
-              ->add('send', SubmitType::class); // We could have added it in the view, as stated in the framework recommendations
- 
-        ;
-    }
+  public function buildForm(FormBuilderInterface $builder, array $options)
+  {
+    $builder
+      ->add('Titre')
+      ->add('Description')
+      ->add('upload_file', FileType::class, [
+        'label' => 'Fichier à Uploader',
+        'mapped' => false,
+        'required' => true,
+        'constraints' => [
+          new File([
+            'mimeTypes' => [
+              'text/javascript',
+              'text/plain',
+              'text/x-java',
+            ],
+            'mimeTypesMessage' => "Ce document est invalide",
+          ])
+        ],
+      ])
+      ->add('send', SubmitType::class);;
+  }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => UploadGame::class,
-        ]);
-    }
+  public function configureOptions(OptionsResolver $resolver)
+  {
+    $resolver->setDefaults([
+      'data_class' => UploadGame::class,
+    ]);
+  }
 }

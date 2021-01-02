@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MonprofilController extends AbstractController
+class MonprofilController extends AbstractController //controlleur de la page profil
 {
     /**
      * @Route("/monprofil", name="monprofil", methods={"GET"})
@@ -24,17 +24,16 @@ class MonprofilController extends AbstractController
 
         $repository = $this->getDoctrine()->getRepository(User::class);
 
-        dump($repository);
+
 
 
         $Jeux = $this->getDoctrine()
             ->getRepository(Jeux::class);
 
-        dump($Jeux);
+
 
 
         $listescore = $jeuxRepository->findBy(array('Userid' => $this->getUser()));
-        dump($listescore);
         return $this->render('monprofil/index.html.twig', [
             'controller_name' => 'MonprofilController',
             'listescore' => $listescore,

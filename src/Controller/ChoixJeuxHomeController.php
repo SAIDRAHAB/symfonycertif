@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ChoixJeuxHomeController extends AbstractController
+class ChoixJeuxHomeController extends AbstractController //controlleur de la page choix des jeux
 {
     /**
      * @Route("/choix/jeux/home", name="choix_jeux_home")

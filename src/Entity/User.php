@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -24,10 +25,11 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email()
      */
     private $email;
 
-      /**
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $pseudo;
@@ -59,7 +61,7 @@ class User implements UserInterface
      */
     private $Numero_adeli;
 
-  
+
 
     public function __construct()
     {
@@ -209,5 +211,4 @@ class User implements UserInterface
 
         return $this;
     }
-
 }

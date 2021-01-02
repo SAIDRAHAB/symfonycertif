@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
-class RegistrationController extends AbstractController
+class RegistrationController extends AbstractController //controlleur de la page s'enregistrer
 {
     /**
      * @Route("/register", name="app_register")
@@ -36,7 +36,7 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
-            return $this->redirectToRoute('monprofil');
+            return $this->redirectToRoute('app_login');
 
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,
@@ -44,7 +44,6 @@ class RegistrationController extends AbstractController
                 $authenticator,
                 'main' // firewall name in security.yaml
             );
-           
         }
 
         return $this->render('registration/register.html.twig', [

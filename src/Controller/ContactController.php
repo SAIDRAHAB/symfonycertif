@@ -15,7 +15,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\Request;
 
-class ContactController extends AbstractController
+class ContactController extends AbstractController //controller page de contact avec envoi de mail
 {
     /**
      * @Route("/contact", name="contact")

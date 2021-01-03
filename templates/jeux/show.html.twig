@@ -1,33 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Jeux{% endblock %}
+{% block title %}Jeux
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
-    <h1>Jeux</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ jeux.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ jeux.Titre }}</td>
-            </tr>
-            <tr>
-                <th>Score</th>
-                <td>{{ jeux.Score }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<div class="container mb-5 mt-5 bg-light">
+		<h1 class="text-center mt-5 mb-5 ">Jeux</h1>
 
-    <a href="{{ path('jeux_index') }}">back to list</a>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ jeux.id }}</td>
+				</tr>
+				<tr>
+					<th>Titre</th>
+					<td>{{ jeux.Titre }}</td>
+				</tr>
+				<tr>
+					<th>Score</th>
+					<td>{{ jeux.Score }}</td>
+				</tr>
+			</tbody>
+		</table>
 
-    <a href="{{ path('jeux_edit', {'id': jeux.id}) }}">edit</a>
+		<a class="btn btn-light" href="{{ path('jeux_index') }}">Revenir à la liste</a>
 
-    {{ include('jeux/_delete_form.html.twig') }}
-     </div>
+		<a class="btn btn-warning " href="{{ path('jeux_edit', {'id': jeux.id}) }}">Modifier</a>
+
+		{{ include('jeux/_delete_form.html.twig') }}
+	</div>
 {% endblock %}
+
+{% block footer %}{% endblock %}

@@ -6,8 +6,8 @@
 {% block body %}
 
 
-	<div class="container">
-		<h1>Jeux index</h1>
+	<div class="container mb-5 mt-5 bg-light">
+		<h1 class="text-center mt-5 mb-5 ">Score de tout les Utilisateurs</h1>
 
 		<table class="table">
 			<thead>
@@ -25,8 +25,8 @@
 						<td>{{ jeux.Titre }}</td>
 						<td>{{ jeux.Score }}</td>
 						<td>
-							<a href="{{ path('jeux_show', {'id': jeux.id}) }}">show</a>
-							<a href="{{ path('jeux_edit', {'id': jeux.id}) }}">edit</a>
+							<a href="{{ path('jeux_show', {'id': jeux.id}) }}" class="btn btn-success ">show</a>
+							<a href="{{ path('jeux_edit', {'id': jeux.id}) }}" class="btn btn-warning ">edit</a>
 						</td>
 					</tr>
 				{% else %}
@@ -37,6 +37,8 @@
 			</tbody>
 		</table>
 
-		<a href="{{ path('jeux_new') }}">Create new</a>
+		<a class="btn btn-primary" href="{{ path('jeux_new') }}">Create new</a>
 	</div>
 {% endblock %}
+
+{% block footer %}{% endblock %}

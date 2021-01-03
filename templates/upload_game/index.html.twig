@@ -3,39 +3,39 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-<div class="container" >
-    <h1>Interface d'ajout de jeu</h1>
+	<div class="container mb-5 mt-5 bg-light">
+		<h1 class="text-center mt-5 mb-5 ">Interface d'ajout de jeu</h1>
 
-<div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for upload_game in upload_games %}
-            <tr>
-                <td>{{ upload_game.id }}</td>
-                <td>{{ upload_game.Titre }}</td>
-                <td>{{ upload_game.Description }}</td>
-                <td>
-                    <a href="{{ path('upload_game_show', {'id': upload_game.id}) }}" class="btn btn-success btn-sm square" role="button">show</a>
-                    <a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}" class="btn btn-warning btn-sm square" role="button">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-    <a href="{{ path('upload_game_new') }}" class="btn btn-primary btn-lg square" role="button">Create new</a>
 
-    </div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Titre</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for upload_game in upload_games %}
+					<tr>
+						<td>{{ upload_game.id }}</td>
+						<td>{{ upload_game.Titre }}</td>
+						<td>{{ upload_game.Description }}</td>
+						<td>
+							<a href="{{ path('upload_game_show', {'id': upload_game.id}) }}" class="btn btn-success " role="button">show</a>
+							<a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}" class="btn btn-warning " role="button">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="4">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('upload_game_new') }}" class="btn btn-primary " role="button">Create new</a>
+	</div>
 {% endblock %}
+{% block footer %}{% endblock %}

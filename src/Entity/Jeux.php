@@ -29,7 +29,7 @@ class Jeux
      */
     private $Score;
 
-    
+
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Jeuxobjet")
@@ -71,7 +71,7 @@ class Jeux
         return $this;
     }
 
-   
+
 
     public function getUserid(): ?User
     {

@@ -1,32 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}UploadGame{% endblock %}
+{% block title %}UploadGame
+{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>UploadGame</h1>
+	<div class="container mb-5 mt-5 bg-light">
+		<h1 class="text-center mt-5 mb-5 ">Jeu</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ upload_game.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ upload_game.Titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ upload_game.Description }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ upload_game.id }}</td>
+				</tr>
+				<tr>
+					<th>Titre</th>
+					<td>{{ upload_game.Titre }}</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td>{{ upload_game.Description }}</td>
+				</tr>
+			</tbody>
+		</table>
 
-    <a href="{{ path('upload_game_index') }}">back to list</a>
+		<a class="btn btn-light " href="{{ path('upload_game_index') }}">Revenir à la liste</a>
 
-    <a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}">edit</a>
+		<a class="btn btn-warning " href="{{ path('upload_game_edit', {'id': upload_game.id}) }}">Modifier</a>
 
-    {{ include('upload_game/_delete_form.html.twig') }}
-    </div>
+		{{ include('upload_game/_delete_form.html.twig') }}
+	</div>
 {% endblock %}
+
+{% block footer %}{% endblock %}

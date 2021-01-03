@@ -1,18 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New UploadGame{% endblock %}
+{% block title %}New UploadGame
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
-    <h1>Ajouter un Jeu</h1>
-    
-  <div class="container container-fluid">
+	<div class="container mb-5 mt-5 bg-light">
+		<h1 class="text-center mt-5 mb-5 ">Ajouter un Jeu</h1>
 
-    {{ include('upload_game/_form.html.twig') }}
-    
 
-    <a href="{{ path('upload_game_index') }}">back to list</a>
-</div>
-    </div>
+		{{ include('upload_game/_form.html.twig') }}
+
+
+		<a class="btn btn-primary " href="{{ path('upload_game_index') }}">back to list</a>
+
+	</div>
 {% endblock %}
+
+{% block footer %}{% endblock %}

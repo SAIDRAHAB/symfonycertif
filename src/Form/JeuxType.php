@@ -4,6 +4,10 @@ namespace App\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Entity\Jeux;
+use App\Entity\Patient;
+use App\Entity\User;
+use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +21,10 @@ class JeuxType extends AbstractType
         $builder
             ->add('Titre')
             ->add('Score')
-            ->add('nomPrenomPatient')
+            ->add('nom_prenom_patient', EntityType::class, [
+                'class' => Patient::class,
+                'choice_label' => 'nom',
+            ])
             ->add('age')
             ->add('commentaire')
             ->add('Enregistrer', SubmitType::class);

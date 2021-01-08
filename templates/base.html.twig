@@ -2,10 +2,10 @@
 <html lang="fr">
 	<head>
 		<meta name="description" content="Boo est un site web de jeux éducatifs professionnels à destination des enfants,
-																							 il a pour vocation de numérisé les jeux que utilisent les orthophonistes. une plateforme gratuite et Open Source " charset="utf-8">
+																																																																																																														 il a pour vocation de numérisé les jeux que utilisent les orthophonistes. une plateforme gratuite et Open Source " charset="utf-8">
 		<title>
 			{% block title %}Découvrez Boo Stimulation, rééducation et remédiation cognitives à destination des enfants 
-																															pour les orthophonistes.
+																																																																																																																																																			pour les orthophonistes.
 			{% endblock %}
 		</title>
 
@@ -45,6 +45,9 @@
 						<a class="nav-link" href="{{ path('orthophonie') }}">Orthophonie</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
 					</li>
 					<li class="nav-item">
@@ -79,10 +82,25 @@
 				{% block body %}
 
 
-					<img class="img-fluid" src="{{ asset('img/boo.png') }}" alt="Image landing page presentation" loading="lazy">
+					<div class="container-fluid mt-5 bg-light">
+
+						<h1 class="display-3 mb-5">
+
+							<img src="{{ asset('img/ghost128px.png') }}" width="128" height="128" alt="logo boo footer " loading="lazy">, plateforme ludique de suivi orthophonique</h1>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col">
+							<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+								<div class="my-3 p-3">
+									<img src="{{ asset('img/orthophonie.jpg') }}" alt="Image tour de hanoi jeu" loading="lazy">
+								</div>
+							</div>
+						</div>
+					</div>
 
 
-					<div class="row">
+					<div class="row ">
 						<div class="col">
 							<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 								<div class="my-3 p-3">

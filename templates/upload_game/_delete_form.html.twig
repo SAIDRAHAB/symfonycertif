@@ -3,6 +3,6 @@
 <form method="post" action="{{ path('upload_game_delete', {'id': upload_game.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ upload_game.id) }}">
-    <button  class="btn btn-danger btn-lg square" role="button">Delete</button>
+    <button  class="btn btn-danger btn-lg square" role="button">Supprimer</button>
 </form>
 </div>

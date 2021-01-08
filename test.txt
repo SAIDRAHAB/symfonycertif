@@ -181,3 +181,22 @@ MDP 9QB0Lxj7zwh
 FTP
 ancien mdp FBYVz9RXEK
 nouveau mdp t]7oi6ByQ
+
+
+
+            ->add('Titre', null, [
+
+                'required'   => false,
+                'attr' => ['readonly' => true],
+                'data' => '',
+            ])
+            ->add('Score', null, [
+                'required'   => false,
+                'attr' => ['readonly' => true],
+                'data' => '0',
+            ])
+
+
+
+
+            

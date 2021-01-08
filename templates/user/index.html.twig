@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index
+{% block title %}Interface Gestion des Users
 {% endblock %}
 
 {% block body %}
 
 	{% if is_granted('ROLE_ADMIN') %}
 
-		<div class="container-fluid bg-light">
+		<div class="container bg-light">
 
 			<h1 class="text-center mt-5 mb-5 ">Interface Gestion des Users</h1>
 
@@ -18,7 +18,7 @@
 						<th>Email</th>
 						<th>Pseudo</th>
 						<th>Roles</th>
-						<th>Password</th>
+						{# <th>Password</th> #}
 						<th>actions</th>
 					</tr>
 				</thead>
@@ -29,21 +29,21 @@
 							<td>{{ user.email }}</td>
 							<td>{{ user.pseudo }}</td>
 							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-							<td>{{ user.password }}</td>
+							{# <td>{{ user.password }}</td> #}
 							<td>
-								<a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn-success btn-sm square" role="button">show</a>
-								<a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning btn-sm square" role="button">edit</a>
+								<a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn-success btn-sm square" role="button">Voir</a>
+								<a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning btn-sm square" role="button">Modifier</a>
 							</td>
 						</tr>
 					{% else %}
 						<tr>
-							<td colspan="6">no records found</td>
+							<td colspan="6">rien trouver</td>
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 
-			<a class="btn btn-primary" href="{{ path('user_new') }}">Create new</a>
+			<a class="btn btn-primary" href="{{ path('user_new') }}">Creer</a>
 		</div>
 
 	{% endif %}

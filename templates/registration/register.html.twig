@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Inscription sur le site boo
 {% endblock %}
 
 {% block body %}
@@ -35,7 +35,7 @@
 
 			{{ form_row(registrationForm.agreeTerms) }}
 			<p>
-				<a class="text-warning offset-md-2" href="https://www.privacypolicies.com/live/9f6a1542-18d1-42ef-b174-06304302e41b">Lire les Conditions</a>
+				<a class="text-warning offset-md-2" href="{{ path('c_g_u') }}">Lire les Conditions</a>
 			</p>
 			<button type="submit" class="btn btn-danger mb-5">Enregister</button>
 			{{ form_end(registrationForm) }}

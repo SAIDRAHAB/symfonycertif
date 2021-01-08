@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html lang="fr">
 	<head>
-		<meta charset="UTF-8">
+		<meta name="description" content="Boo est un site web de jeux éducatifs professionnels à destination des enfants,
+		 il a pour vocation de numérisé les jeux que utilisent les orthophonistes. une plateforme gratuite et Open Source " charset="utf-8">
 		<title>
-			{% block title %}{% endblock %}
+			{% block title %}Découvrez Boo Stimulation, rééducation et remédiation cognitives à destination des enfants 
+			pour les orthophonistes.
+			{% endblock %}
 		</title>
 
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
-			{# <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css" crossorigin="anonymous">
-																																																																																																																																																																																																																																																																																																																																																																																																																														   #}
-
+			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
 		{% endblock %}
-
+	</head>
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-			<a class="navbar-brand" href="/"><img src="{{ asset('img/ghost.png') }}" width="32" height="32" alt="boo" style="height: 32px;"></a>
+			<a class="navbar-brand" href="/"><img src="{{ asset('img/ghost.png') }}" width="32" height="32" alt="logo boo" loading="lazy" style="height: 32px;"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
-					{% if is_granted('ROLE_USER') %}
+						{% if is_granted('ROLE_USER') %}
 						<li class="nav-item active">
 							<a class="nav-link" href="{{ path('choix_jeux_home') }}">Jeux
 								<span class="sr-only">(current)</span>
@@ -31,6 +32,10 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('monprofil') }}">Profil</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('suivi') }}">Suivi Patient</a>
 						</li>
 						{%endif%}
 						<li class="nav-item">
@@ -40,32 +45,30 @@
 							<a class="nav-link" href="{{ path('contact') }}">Contact</a>
 						</li>
 						{% if is_granted('ROLE_USER') %}
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_logout') }}">Se deconnecter</a>
-							</li>
-							{%endif%}
-							{% if is_granted('ROLE_ADMIN') %}
-
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin Panel</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="{{ path('upload_game_index') }}">Ajout de jeu</a>
-										<a class="dropdown-item" href="{{ path('jeux_index') }}">Liste des scores CRUD</a>
-										<a class="dropdown-item" href="{{ path('user_index') }}">Utilisateur CRUD</a>
-									</div>
-								</li>
-								{%endif%}
-							</ul>
-						</div>
-					</nav>
-				</div>
-			</nav>
-		</head>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_logout') }}">Se deconnecter</a>
+						</li>
+						{%endif%}
+						{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrateur</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="{{ path('upload_game_index') }}">Ajout de jeu</a>
+									<a class="dropdown-item" href="{{ path('jeux_index') }}">Liste des scores</a>
+									<a class="dropdown-item" href="{{ path('user_index') }}">Utilisateur</a>
+								</div>
+						</li>
+						{%endif%}
+				</ul>
+			</div>
+		</nav>
+		
+		
 
 
 		{% block body %}
 
-			<img class="img-fluid" src="{{ asset('img/boo.png') }}" alt="boo">
+			<img class="img-fluid" src="{{ asset('img/boo.png') }}" alt="Image landing page presentation" loading="lazy">
 
 			<div class=" p-3 p-md-5 m-md-3 text-center bg-light">
 				<div class="col-md-6 p-lg-5 mx-auto my-5">
@@ -91,35 +94,35 @@
 		{% endblock %}
 
 		{% block footer %}
-			<footer class="container-fluid py-2 mx-auto bg-light">
+			<footer class="container-fluid py-2 mx-auto bg-danger">
 				<div class="row">
 					<div class="col-md-5">
-						<img src="{{ asset('img/ghost128px.png') }}" width="64" height="64" alt="boo" title="boo">
+						<img src="{{ asset('img/ghost128px.png') }}" width="64" height="64" alt="logo boo footer " loading="lazy">
 
 						<p style="margin-right: 40px;">
 							L’expansion du monde numérique ont ouvert un nouveau chapitre dans le secteur de la santé cognitive, au sein duquel Boo affiche de fortes ambitions thérapeutiques.</p>
 						<small class="d-block mb-3 text-muted">&copy; 2020</small>
 					</div>
 					<div class="col-md-2 ">
-						<h3>Contact</h3>
-						<p>
+						<h4>Contact</h4>
+						<h6>
 							<i class="fas fa-map-marker-alt"></i>
-							Villa Adrienne, 75014 Paris France</p>
-						<p>
+							Villa Adrienne, 75014 Paris France</h6>
+						<h6>
 							<i class="fas fa-phone"></i>
-							Phone: +33 632 12 68 47</p>
-						<p>
+							Phone: +33 632 12 68 47</h6>
+						<h6>
 							<i class="fas fa-envelope"></i>
 							Email:
 							<a href="mailto:admin@said-rahab.fr">Admin@said-rahab.fr</a>
-						</p>
-						<p>
+						</h6>
+						<h6>
 							<i class="fab fa-discord"></i>
-							Discord: Said rahab#2866</p>
+							Discord: Said rahab#2866</h6>
 					</div>
 					<div class="col-md-2">
 
-						<h3>About</h3>
+						<h4>About</h4>
 						<ul class="list-unstyled text-small">
 							<li>
 								<a class="link-secondary" href="https://www.privacypolicies.com/live/9f6a1542-18d1-42ef-b174-06304302e41b">Privacy</a>
@@ -132,7 +135,7 @@
 					</div>
 
 					<div class="col-md-2">
-						<h3>Follow us</h3>
+						<h4>Follow us</h4>
 						<p>
 							<a href="#">
 								<i class="fab fa-facebook px-1"></i>
@@ -162,5 +165,4 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></head>
-</html></head></html>
+</html>

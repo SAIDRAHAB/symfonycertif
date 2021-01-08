@@ -35,6 +35,7 @@ class JeuxController extends AbstractController //controlleur de l'ajout des jeu
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $jeux->setDate(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($jeux);
             $entityManager->flush();

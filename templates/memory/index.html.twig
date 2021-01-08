@@ -53,14 +53,7 @@
 
 					<div id="txtmodalgagner" data="" class="p-3 mb-2 bg-success text-white"></div>
 					<div id="divCheckbox">
-						{{ form_start(form) }}
-
-						{{ form_widget(form.Titre) }}
-						{{ form_widget(form.Score) }}
-
-						{{ form_widget(form.submit, { 'label': 'Enregistrer mon score' }) }}
-
-						{{ form_end(form) }}
+						{{ form(form) }}
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -92,7 +85,7 @@
 
 		document.getElementById('jeux_Score').setAttribute("data", points);
 
-document.getElementById('jeux_Titre').innerHTML = "hanoi";
+document.getElementById('jeux_Titre').innerHTML = "Memory";
 	</script>
 	<script src="{{ asset('jeuxjs/memory.js') }}"></script>
 

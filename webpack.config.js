@@ -28,7 +28,7 @@ Encore
 
      .addEntry('mathgame', './assets/styles/math.css')
      .addEntry('memorygame', './assets/styles/memory.css')
-     .addEntry('mathgamejs', './assets/math.js')/* 
+     .addEntry('mathgamejs', './jeuxjs/math.js')/* 
     .addEntry('bootstrap', './assets/styles/bootstrapsketchy.css') 
       */
 

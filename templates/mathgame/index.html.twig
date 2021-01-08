@@ -12,8 +12,9 @@
 {% block javascripts %}
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 	<script src="https://siddii.github.io/angular-timer/dist/assets/js/angular-timer-all.min.js"></script>
-
-	{{ encore_entry_script_tags('mathgamejs') }}
+	<script src="{{ asset('jeuxjs/math.js') }}" ></script>
+{# 
+	{{ encore_entry_script_tags('mathgamejs') }} #}
 
 {% endblock %}
 
@@ -47,10 +48,10 @@
 					<h1 class="title animated" ng-class="className" ng-mouseenter="className = 'jello'" ng-mouseleave="className = 'pulse'">Mathematics</h1>
 
 					<form class="level centralize">
-						<h5>choose a difficulty</h5>
+						<h5>Choisir la difficulté</h5>
 						<label for="easy" ng-class="{'active' : lvl.name == 'easy'}">
 							<input id="easy" type="radio" ng-model="lvl.name" value="easy">
-							Easy
+							Facile
 						</label>
 						<label for="normal" ng-class="{'active' : lvl.name == 'normal'}">
 							<input id="normal" type="radio" ng-model="lvl.name" value="normal">
@@ -58,24 +59,24 @@
 						</label>
 						<label for="hard" ng-class="{'active' : lvl.name == 'hard'}">
 							<input id="hard" type="radio" ng-model="lvl.name" value="hard">
-							Hard
+							Difficile
 						</label>
 					</form>
 
 					<div>
-						<button class="btn btn-play bg1 centralize" type="button" ng-click="play(lvl.name)" name="button">Play</button>
+						<button class="btn btn-play bg1 centralize" type="button" ng-click="play(lvl.name)" name="button">Jouer</button>
 					</div>
 
 					<div id="info">
 						<div>
 							<span>{{info.correct}}</span>
-							correct answers</div>
+							Bonne réponse</div>
 						<div>
 							<span>{{info.wrong}}</span>
-							wrong answers</div>
+							Mauvaise réponse</div>
 						<div>
 							<span>{{info.hit}}</span>
-							hits</div>
+							essai</div>
 					</div>
 
 				</div>
@@ -100,9 +101,9 @@
 					</div>
 
 					<div class="help">
-						<button class="btn-help" ng-click="help($event)">help</button>
+						<button class="btn-help" ng-click="help($event)">Aide</button>
 						<span>{{countHelp}}
-							remaining</span>
+							Restant</span>
 					</div>
 
 
@@ -111,20 +112,20 @@
 					</div>
 
 					<div class="current-level">
-						level
+						Niveau
 						{{lvl.name}}
 					</div>
 
 					<div class="info">
 						<div>
 							<span>{{info.correct}}</span>
-							correct answers</div>
+							Bonne réponse</div>
 						<div>
 							<span>{{info.wrong}}</span>
-							wrong answers</div>
+							Mauvaise réponse</div>
 						<div>
 							<span>{{info.hit}}</span>
-							hits</div>
+							nombre d'éssai</div>
 					</div>
 
 					<timer autostart="false" interval="1000" countdown="30">

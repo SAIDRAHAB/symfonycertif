@@ -37,6 +37,26 @@ class Jeux
      */
     private $Userid;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $commentaire;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom_prenom_patient;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $age;
+
     public function __construct()
     {
         $this->relation = new ArrayCollection();
@@ -81,6 +101,54 @@ class Jeux
     public function setUserid(?User $Userid): self
     {
         $this->Userid = $Userid;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getCommentaire(): ?string
+    {
+        return $this->commentaire;
+    }
+
+    public function setCommentaire(?string $commentaire): self
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    public function getNomPrenomPatient(): ?string
+    {
+        return $this->nom_prenom_patient;
+    }
+
+    public function setNomPrenomPatient(string $nom_prenom_patient): self
+    {
+        $this->nom_prenom_patient = $nom_prenom_patient;
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(string $age): self
+    {
+        $this->age = $age;
 
         return $this;
     }

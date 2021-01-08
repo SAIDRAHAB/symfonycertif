@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MonprofilController!
+{% block title %}Profil utilisateur
 {% endblock %}
 
 {% block body %}
 
-	<div class="container">
+	<div class="container bg-light">
 		<h1 class="text-center mt-5">Mon Profil</h1>
 
 		<form>
@@ -39,29 +39,6 @@
 
 		<a href="{{ path('user_edit', {'id': user.id}) }}" class="btn mt-5 btn-primary btn-sm square" role="button">Modifier mes Informations</a>
 
-		<div class="container-fluid mt-5">
-			<table class="table clearfix">
-				<thead class="thead-light">
-					<tr>
-						<th>Jeux numero</th>
-						<th>Jeu</th>
-						<th>Score</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for score in listescore %}
-						<tr>
-
-							<td>{{ score.Id }}</td>
-							<td>{{ score.Titre }}</td>
-							<td>{{ score.Score }}</td>
-
-						</tr>
-					{% endfor %}
-
-				</tbody>
-			</table>
-		</div>
 	</div>
 
 {% endblock %}

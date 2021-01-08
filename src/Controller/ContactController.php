@@ -29,7 +29,7 @@ class ContactController extends AbstractController //controller page de contact 
             ->add('email', EmailType::class)
             ->add('sujet', TextType::class)
             ->add('message', TextareaType::class)
-            ->add('send', SubmitType::class)
+            ->add('Envoyer', SubmitType::class)
             ->getForm();
 
         $contact = $formulaire_contact->handleRequest($request);
@@ -49,7 +49,7 @@ class ContactController extends AbstractController //controller page de contact 
             $mailer->send($email);
 
             $this->addFlash('message', 'Mail envoyé');
-            return $this->redirectToRoute('choix_jeux_home');
+            return $this->redirectToRoute('contact');
         }
 
 

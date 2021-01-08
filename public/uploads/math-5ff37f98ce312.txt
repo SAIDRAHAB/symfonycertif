@@ -23,11 +23,11 @@
         };
 
         $scope.messageText = {
-            success     : 'Super',
-            successHit  : 'Magnifique',
-            successHit2 : 'Incroyable',
-            successLow  : 'Bien',
-            error       : 'Faux'
+            success     : 'Great',
+            successHit  : 'Awesome',
+            successHit2 : 'Unbelievable',
+            successLow  : 'Good',
+            error       : 'Ops, are you sure?'
         };
 
         $scope.play = function(level) {

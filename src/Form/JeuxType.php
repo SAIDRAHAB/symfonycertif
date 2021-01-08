@@ -15,18 +15,12 @@ class JeuxType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Titre', null, [
-
-                'required'   => false,
-                'attr' => ['readonly' => true],
-                'data' => '',
-            ])
-            ->add('Score', null, [
-                'required'   => false,
-                'attr' => ['readonly' => true],
-                'data' => '0',
-            ])
-            ->add('submit', SubmitType::class);
+            ->add('Titre')
+            ->add('Score')
+            ->add('nomPrenomPatient')
+            ->add('age')
+            ->add('commentaire')
+            ->add('Enregistrer', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

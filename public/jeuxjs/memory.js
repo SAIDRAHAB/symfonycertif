@@ -5,8 +5,8 @@ var step = 1;
 var p1,p2;
 var timer = document.getElementById('time');
 
-document.getElementById('jeux_Score').setAttribute("value", step);
-document.getElementById('jeux_Score').setAttribute("data", step);
+document.getElementById('jeux_Score').setAttribute("readonly", "readonly");
+document.getElementById('jeux_Titre').setAttribute("readonly", "readonly");
 console.log(document.getElementById('jeux_Titre'));
 console.log(document.getElementById('jeux_Score'));
 
@@ -53,7 +53,7 @@ function check(){
       scoreafficher.setAttribute("data", points);
       
 document.getElementById('jeux_Score').setAttribute("value", points);
-document.getElementById('jeux_Titre').setAttribute("value", "hanoi");
+document.getElementById('jeux_Titre').setAttribute("value", "Memory");
 
 console.log(document.getElementById('jeux_Titre'));
 console.log(document.getElementById('jeux_Score'));

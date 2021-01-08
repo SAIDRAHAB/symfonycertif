@@ -46,6 +46,7 @@ class SecurityController extends AbstractController //controlleur du login logou
 
     /**
      * @Route("/", name="base")
+     * 
      */
     public function index(): Response
     {
@@ -101,21 +102,7 @@ class SecurityController extends AbstractController //controlleur du login logou
 
 
             // On génère l'e-mail
-            /*  $message = (new \Swift_Message('Mot de passe oublié'))
-                ->setFrom('postmaster@said-rahab.fr')
-                ->setTo($user->getEmail())
-                ->setBody(
-                    "<p>Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Boo (said-rahab.fr). Veuillez cliquer sur le lien suivant : </p>" . $url,
-                    'text/html'
-                ); */
-            /*  $message2 = (new TemplatedEmail())
-                ->from('admin@said-rahab.fr')
-                ->to($user->getEmail())
-                ->subject('Message de reinitianlisation de mot de passe')
-                ->htmlTemplate('security/motdepasseoublier.html.twig')
-                ->context([
-                    'mail' => $form->get('email')->getData(),
-                ]); */
+          
             $email = (new Email())
                 ->from('admin@said-rahab.fr')
                 ->to($user->getEmail())

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Interface d'ajout de jeu
+{% endblock %}
 
 {% block body %}
 	<div class="container mb-5 mt-5 bg-light">
@@ -23,19 +24,19 @@
 						<td>{{ upload_game.Titre }}</td>
 						<td>{{ upload_game.Description }}</td>
 						<td>
-							<a href="{{ path('upload_game_show', {'id': upload_game.id}) }}" class="btn btn-success " role="button">show</a>
-							<a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}" class="btn btn-warning " role="button">edit</a>
+							<a href="{{ path('upload_game_show', {'id': upload_game.id}) }}" class="btn btn-success " role="button">Voir</a>
+							<a href="{{ path('upload_game_edit', {'id': upload_game.id}) }}" class="btn btn-warning " role="button">Modifier</a>
 						</td>
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="4">no records found</td>
+						<td colspan="4">Rien trouvé</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 
-		<a href="{{ path('upload_game_new') }}" class="btn btn-primary " role="button">Create new</a>
+		<a href="{{ path('upload_game_new') }}" class="btn btn-primary " role="button">Creer</a>
 	</div>
 {% endblock %}
 {% block footer %}{% endblock %}

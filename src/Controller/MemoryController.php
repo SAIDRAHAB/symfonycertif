@@ -23,20 +23,16 @@ class MemoryController extends AbstractController //controlleur du jeu memory av
     {
 
         $user = $this->getUser();
-        $jeux = new Jeux();/* 
-        $formulaire_contact = $this->createFormBuilder()
-        ->add('titre', TextareaType::class)
-        ->add('score', TextareaType::class)
-        ->add('send', SubmitType::class)
-        ->getForm(); */
+        $jeux = new Jeux();
         $jeux->setUserid($user);
 
         $formulaire_contact = $this->createForm(JeuxType::class, $jeux);
 
         $formulaire_contact->handleRequest($request);
         if ($formulaire_contact->isSubmitted() && $formulaire_contact->isValid()) {
+            dump($jeux);
             $jeux = $formulaire_contact->getData();
-
+            $jeux->setDate(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($jeux);
             $entityManager->flush();

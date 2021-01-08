@@ -1,21 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Suivi{% endblock %}
+{% block title %}Suivi
+{% endblock %}
 
 {% block body %}
 
+	<div class="container mt-5 bg-light">
+
+		<h1 class="display-3 mb-5">Vos patients</h1>
+		<table class="table clearfix">
+			<thead class="thead-light">
+				<tr>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Age</th>
+					<th>Pathologie</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for patient in listepatient %}
+					<tr>
+						<td>{{ patient.Nom }}</td>
+						<td>{{ patient.Prenom }}</td>
+						<td>{{ patient.age }}</td>
+						<td>{{ patient.Pathologie }}</td>
+					</tr>
+
+				{% else %}
+					<tr>
+						<td class="text-warning" colspan="6">Vous avez aucun patient enregistrer ! ;)
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+
+		<a href="{{ path('patientajout') }}" class="btn btn-primary " role="button">Ajouter un patient</a>
 		<div class="container mt-5 bg-light">
-        
+
 			<h1 class="display-3 mb-5">Suivi des patients</h1>
 			<table class="table clearfix">
 				<thead class="thead-light">
 					<tr>
 						<th>Jeu</th>
 						<th>Score</th>
-                        <th>Nom prenom du patient</th>
-                        <th>Age</th>
-                        <th>Commentaire de l'orthophoniste</th>
-                        <th>Date de l'evaluation</th>
+						<th>Nom prenom du patient</th>
+						<th>Age</th>
+						<th>Commentaire de l'orthophoniste</th>
+						<th>Date de l'evaluation</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,22 +56,24 @@
 						<tr>
 							<td>{{ score.Titre }}</td>
 							<td>{{ score.Score }}</td>
-                            <td>{{ score.nomPrenomPatient }}</td>
-                            <td>{{ score.age }}</td>
-                            <td>{{ score.commentaire }}</td>
-                            <td>{{ score.date|date('d/m/Y H:i:s') }}</td>
+							<td>{{ score.nomPrenomPatient }}</td>
+							<td>{{ score.age }}</td>
+							<td>{{ score.commentaire }}</td>
+							<td>{{ score.date|date('d/m/Y H:i:s') }}</td>
 						</tr>
-					
+
 					{% else %}
 						<tr>
-							<td class="text-warning" colspan="6">Vous avez aucun suivi ! ;) </td>
+							<td class="text-warning" colspan="6">Vous avez aucun suivi ! ;)
+							</td>
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
-                		<a href="{{ path('suiviajout') }}" class="btn btn-primary " role="button">Ajouter une evaluation</a>
+			<a href="{{ path('suiviajout') }}" class="btn btn-primary " role="button">Ajouter une evaluation</a>
+
 
 		</div>
-{% endblock %}
+	{% endblock %}
 
-{% block footer %}{% endblock %}
+	{% block footer %}{% endblock %}

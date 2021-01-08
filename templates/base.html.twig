@@ -2,10 +2,10 @@
 <html lang="fr">
 	<head>
 		<meta name="description" content="Boo est un site web de jeux éducatifs professionnels à destination des enfants,
-		 il a pour vocation de numérisé les jeux que utilisent les orthophonistes. une plateforme gratuite et Open Source " charset="utf-8">
+																							 il a pour vocation de numérisé les jeux que utilisent les orthophonistes. une plateforme gratuite et Open Source " charset="utf-8">
 		<title>
 			{% block title %}Découvrez Boo Stimulation, rééducation et remédiation cognitives à destination des enfants 
-			pour les orthophonistes.
+																															pour les orthophonistes.
 			{% endblock %}
 		</title>
 
@@ -16,209 +16,213 @@
 		{% endblock %}
 	</head>
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-			<a class="navbar-brand" href="/"><img src="{{ asset('img/ghost.png') }}" width="32" height="32" alt="logo boo" loading="lazy" style="height: 32px;"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+		<a class="navbar-brand" href="/"><img src="{{ asset('img/ghost.png') }}" width="32" height="32" alt="logo boo" loading="lazy" style="height: 32px;"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			<div class="collapse navbar-collapse" id="navbarColor01">
-				<ul class="navbar-nav mr-auto">
-						{% if is_granted('ROLE_USER') %}
-						<li class="nav-item active">
-							<a class="nav-link" href="{{ path('choix_jeux_home') }}">Jeux
-								<span class="sr-only">(current)</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('monprofil') }}">Profil</a>
-						</li>
-						
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('suivi') }}">Suivi Patient</a>
-						</li>
-						{%endif%}
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('quisommenous') }}">Qui sommes-nous ?</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('contact') }}">Contact</a>
-						</li>
-						{% if is_granted('ROLE_USER') %}
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				{% if is_granted('ROLE_USER') %}
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ path('choix_jeux_home') }}">Jeux
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('monprofil') }}">Profil</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('suivi') }}">Suivi Patient</a>
+					</li>
+					{%endif%}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('base') }}">Acceuil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('orthophonie') }}">Orthophonie</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('tarifs') }}">Tarifs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('quisommenous') }}">Qui sommes-nous ?</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('contact') }}">Contact</a>
+					</li>
+					{% if is_granted('ROLE_USER') %}
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('app_logout') }}">Se deconnecter</a>
 						</li>
 						{%endif%}
 						{% if is_granted('ROLE_ADMIN') %}
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrateur</a>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrateur</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{{ path('upload_game_index') }}">Ajout de jeu</a>
 									<a class="dropdown-item" href="{{ path('jeux_index') }}">Liste des scores</a>
 									<a class="dropdown-item" href="{{ path('user_index') }}">Utilisateur</a>
 								</div>
-						</li>
-						{%endif%}
-				</ul>
-			</div>
-		</nav>
-		
-		
-
-
-		{% block body %}
-
-
-
-			<img class="img-fluid" src="{{ asset('img/boo.png') }}" alt="Image landing page presentation" loading="lazy">
-
-
- 	<div class="row">
-		<div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-				<div class="my-3 p-3">
-					<h2 class="display-5">Patient</h2>
-					<p class="lead">Avec Boo vous etes suivi par votre orthophoniste grace à notre suivi statistique</p>
-
-				</div>
-				<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-					<img src="{{ asset('img/statistics.png') }}" width="128" height="128" alt="Image statistiques" loading="lazy">
-				</div>
-			</div>
-			 </div>
-			 <div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-				<div class="my-3 p-3">
-					<h2 class="display-5">Orthophoniste</h2>
-					<p class="lead">Avec Boo proposer à vos patients des jeux afin de suivre leur progression </p>
-
-				</div>
-				<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-					<img src="{{ asset('img/puzzle.png') }}" width="128" height="128" alt="Image tour de hanoi jeu" loading="lazy">
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-
-			<div class=" p-3 p-md-5 m-md-3 text-center bg-light">
-				<div class="col-md-6 p-lg-5 mx-auto my-5">
-					<h1 class="display-4 fw-normal">
-						Découvrez Boo
-					</h1>
-					<p class="lead fw-normal">Stimulation, rééducation et remédiation cognitives à destination des enfants pour les professionnels de santé</p>
-					<a class="btn btn-outline-secondary" href="{{ path('app_register') }}">S'inscrire</a>
-				</div>
-				<div class="product-device shadow-sm d-none d-md-block"></div>
-				<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-			</div>
-
-			<div class=" p-3 p-md-5 m-md-3 text-center bg-light">
-				<div class="col-md-6 p-lg-5 mx-auto my-5">
-					<h1 class="display-4 fw-normal">Evaluation</h1>
-					<p class="lead fw-normal">Avec nos differents jeux disponibles sur la plateforme évalué vos patients plus facilement avec un suivi statistique</p>
-					<a class="btn btn-outline-secondary" href="{{ path('app_login') }}">Se connecter</a>
-				</div>
-				<div class="product-device shadow-sm d-none d-md-block"></div>
-				<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-			</div>
-
-
-
- 	<div class="row">
-		<div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-		
-				<div class="my-3 p-3">
-					<h2 class="display-5">Gratuit</h2>
-					<p class="lead">Avec Boo vous pouvez utilisez notre plateforme GRATUITEMENT ! Alors foncez!!</p>
-
-				</div>
-				<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-					<img src="{{ asset('img/free.png') }}" width="128" height="128" alt="Image statistiques" loading="lazy">
-				</div>
-			</div>
-
-
-
-
-
-		{% endblock %}
-
-		{% block footer %}
-			<footer class="container-fluid py-2 mx-auto bg-danger">
-				<div class="row">
-					<div class="col-md-5">
-						<img src="{{ asset('img/ghost128px.png') }}" width="64" height="64" alt="logo boo footer " loading="lazy">
-
-						<p style="margin-right: 40px;">
-							L’expansion du monde numérique ont ouvert un nouveau chapitre dans le secteur de la santé cognitive, au sein duquel Boo affiche de fortes ambitions thérapeutiques.</p>
-						<small class="d-block mb-3 text-muted">&copy; 2020</small>
-					</div>
-					<div class="col-md-2 ">
-						<h4>Contact</h4>
-						<h6>
-							<i class="fas fa-map-marker-alt"></i>
-							Villa Adrienne, 75014 Paris France</h6>
-						<h6>
-							<i class="fas fa-phone"></i>
-							Phone: +33 632 12 68 47</h6>
-						<h6>
-							<i class="fas fa-envelope"></i>
-							Email:
-							<a href="mailto:admin@said-rahab.fr">Admin@said-rahab.fr</a>
-						</h6>
-						<h6>
-							<i class="fab fa-discord"></i>
-							Discord: Said rahab#2866</h6>
-					</div>
-					<div class="col-md-2">
-
-						<h4>About</h4>
-						<ul class="list-unstyled text-small">
-							<li>
-								<a class="link-secondary" href="https://www.privacypolicies.com/live/9f6a1542-18d1-42ef-b174-06304302e41b">Privacy</a>
 							</li>
-							<li>
-								<a class="link-secondary" href="{{ path('mentionslegal') }}">Mentions legal</a>
-							</li>
+							{%endif%}
 						</ul>
+					</div>
+				</nav>
 
+
+				{% block body %}
+
+
+					<img class="img-fluid" src="{{ asset('img/boo.png') }}" alt="Image landing page presentation" loading="lazy">
+
+
+					<div class="row">
+						<div class="col">
+							<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+								<div class="my-3 p-3">
+									<h2 class="display-5">Patient</h2>
+									<p class="lead">Avec Boo vous etes suivi par votre orthophoniste grace à notre suivi statistique</p>
+
+								</div>
+								<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+									<img src="{{ asset('img/statistics.png') }}" width="128" height="128" alt="Image statistiques" loading="lazy">
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+								<div class="my-3 p-3">
+									<h2 class="display-5">Orthophoniste</h2>
+									<p class="lead">Avec Boo proposer à vos patients des jeux afin de suivre leur progression
+									</p>
+
+								</div>
+								<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+									<img src="{{ asset('img/puzzle.png') }}" width="128" height="128" alt="Image tour de hanoi jeu" loading="lazy">
+								</div>
+							</div>
+						</div>
 					</div>
 
-					<div class="col-md-2">
-						<h4>Follow us</h4>
-						<p>
-							<a href="#">
-								<i class="fab fa-facebook px-1"></i>
-							</a>
-							<a href="#">
-								<i class="fab fa-twitter px-1"></i>
-							</a>
-							<a href="#">
-								<i class="fab fa-google-plus-g px-1"></i>
-							</a>
-							<a href="#">
-								<i class="fab fa-instagram px-1"></i>
-							</a>
-							<a href="#">
-								<i class="fab fa-pinterest px-1"></i>
-							</a>
-						</p>
+
+					<div class=" p-3 p-md-5 m-md-3 text-center bg-light">
+						<div class="col-md-6 p-lg-5 mx-auto my-5">
+							<h1 class="display-4 fw-normal">
+								Découvrez Boo
+							</h1>
+							<p class="lead fw-normal">Stimulation, rééducation et remédiation cognitives à destination des enfants pour les professionnels de santé</p>
+							<a class="btn btn-outline-secondary" href="{{ path('app_register') }}">S'inscrire</a>
+						</div>
+						<div class="product-device shadow-sm d-none d-md-block"></div>
+						<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 					</div>
-				</div>
 
-			</footer>
-		{% endblock %}
+					<div class=" p-3 p-md-5 m-md-3 text-center bg-light">
+						<div class="col-md-6 p-lg-5 mx-auto my-5">
+							<h1 class="display-4 fw-normal">Evaluation</h1>
+							<p class="lead fw-normal">Avec nos differents jeux disponibles sur la plateforme évalué vos patients plus facilement avec un suivi statistique</p>
+							<a class="btn btn-outline-secondary" href="{{ path('app_login') }}">Se connecter</a>
+						</div>
+						<div class="product-device shadow-sm d-none d-md-block"></div>
+						<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+					</div>
 
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</html>
+
+					<div class="row">
+						<div class="col">
+							<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+
+								<div class="my-3 p-3">
+									<h2 class="display-5">Gratuit</h2>
+									<p class="lead">Avec Boo vous pouvez utilisez notre plateforme GRATUITEMENT ! Alors foncez!!</p>
+
+								</div>
+								<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+									<img src="{{ asset('img/free.png') }}" width="128" height="128" alt="Image statistiques" loading="lazy">
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				{% endblock %}
+
+				{% block footer %}
+					<footer class="container-fluid py-2 mx-auto bg-danger">
+						<div class="row">
+							<div class="col-md-5">
+								<img src="{{ asset('img/ghost128px.png') }}" width="64" height="64" alt="logo boo footer " loading="lazy">
+
+								<p style="margin-right: 40px;">
+									L’expansion du monde numérique ont ouvert un nouveau chapitre dans le secteur de la santé cognitive, au sein duquel Boo affiche de fortes ambitions thérapeutiques.</p>
+								<small class="d-block mb-3 text-muted">&copy; 2020</small>
+							</div>
+							<div class="col-md-2 ">
+								<h4>Contact</h4>
+								<h6>
+									<i class="fas fa-map-marker-alt"></i>
+									Villa Adrienne, 75014 Paris France</h6>
+								<h6>
+									<i class="fas fa-phone"></i>
+									Phone: +33 632 12 68 47</h6>
+								<h6>
+									<i class="fas fa-envelope"></i>
+									Email:
+									<a href="mailto:admin@said-rahab.fr">Admin@said-rahab.fr</a>
+								</h6>
+								<h6>
+									<i class="fab fa-discord"></i>
+									Discord: Said rahab#2866</h6>
+							</div>
+							<div class="col-md-2">
+
+								<h4>About</h4>
+								<ul class="list-unstyled text-small">
+									<li>
+										<a class="link-secondary" href="https://www.privacypolicies.com/live/9f6a1542-18d1-42ef-b174-06304302e41b">Privacy</a>
+									</li>
+									<li>
+										<a class="link-secondary" href="{{ path('mentionslegal') }}">Mentions legal</a>
+									</li>
+								</ul>
+
+							</div>
+
+							<div class="col-md-2">
+								<h4>Follow us</h4>
+								<p>
+									<a href="#">
+										<i class="fab fa-facebook px-1"></i>
+									</a>
+									<a href="#">
+										<i class="fab fa-twitter px-1"></i>
+									</a>
+									<a href="#">
+										<i class="fab fa-google-plus-g px-1"></i>
+									</a>
+									<a href="#">
+										<i class="fab fa-instagram px-1"></i>
+									</a>
+									<a href="#">
+										<i class="fab fa-pinterest px-1"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+
+					</footer>
+				{% endblock %}
+
+				{% block javascripts %}
+					{{ encore_entry_script_tags('app') }}
+				{% endblock %}
+				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+			</html>

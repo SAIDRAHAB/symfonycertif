@@ -61,11 +61,17 @@ class User implements UserInterface
      */
     private $Numero_adeli;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Patient::class, mappedBy="user")
+     */
+    private $patients;
+
 
 
     public function __construct()
     {
         $this->Jeuxobjet = new ArrayCollection();
+        $this->patients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,6 +214,36 @@ class User implements UserInterface
     public function setNumeroAdeli(string $Numero_adeli): self
     {
         $this->Numero_adeli = $Numero_adeli;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Patient[]
+     */
+    public function getPatients(): Collection
+    {
+        return $this->patients;
+    }
+
+    public function addPatient(Patient $patient): self
+    {
+        if (!$this->patients->contains($patient)) {
+            $this->patients[] = $patient;
+            $patient->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePatient(Patient $patient): self
+    {
+        if ($this->patients->removeElement($patient)) {
+            // set the owning side to null (unless already changed)
+            if ($patient->getUser() === $this) {
+                $patient->setUser(null);
+            }
+        }
 
         return $this;
     }

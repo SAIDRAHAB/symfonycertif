@@ -2,10 +2,10 @@
 <html lang="fr">
 	<head>
 		<meta name="description" content="Boo est un site web de jeux éducatifs professionnels à destination des enfants,
-																																																																																																														 il a pour vocation de numérisé les jeux que utilisent les orthophonistes. une plateforme gratuite et Open Source " charset="utf-8">
+																																																																																																																				 il a pour vocation de numérisé les jeux que utilisent les orthophonistes. une plateforme gratuite et Open Source " charset="utf-8">
 		<title>
 			{% block title %}Découvrez Boo Stimulation, rééducation et remédiation cognitives à destination des enfants 
-																																																																																																																																																			pour les orthophonistes.
+																																																																																																																																																											pour les orthophonistes.
 			{% endblock %}
 		</title>
 
@@ -44,12 +44,14 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('orthophonie') }}">Orthophonie</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
-					</li>
+					{% if not app.user %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+						</li>
+					{% endif %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('tarifs') }}">Tarifs</a>
 					</li>

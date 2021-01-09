@@ -26,20 +26,24 @@
 				<div class="my-3 py-3">
 					<h2 class="display-5">Memory</h2>
 					<p class="lead">Exercer votre capacité à memorisé les cartes</p>
-
-					<a class="btn btn-outline-secondary" href="{{ path('memory') }}">Jouer</a>
+					{% for upload_game in upload_games %}
+						<a class="btn btn-outline-secondary" href="{{ path('play', {'id': upload_game.id}) }} ">Jouer</a>
+					{% endfor %}
 				</div>
 				<div class="mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 
 					<img src="{{ asset('img/card.png') }}" width="128" height="128" alt="Image memory jeu" loading="lazy">
 				</div>
+
 			</div>
 			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 				<div class="my-3 p-3">
 					<h2 class="display-5">Tour de Hanoi</h2>
 					<p class="lead">Déplacer les disques jusqu'à la tour de droite</p>
+					{% for upload_game in upload_games %}
+						<a class="btn btn-outline-secondary" href="{{ path('play' , {'id': upload_game.id}) }}">Jouer</a>
 
-					<a class="btn btn-outline-secondary" href="{{ path('hanoigame') }}">Jouer</a>
+					{% endfor %}
 				</div>
 				<div class=" mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 					<img src="{{ asset('img/abacus.png') }}" width="128" height="128" alt="Image tour de hanoi jeu" loading="lazy">
@@ -49,8 +53,10 @@
 				<div class="my-3 p-3">
 					<h2 class="display-5">Mathematics</h2>
 					<p class="lead">Calculer rapidement sans faire d'erreur !!!</p>
+					{% for upload_game in upload_games %}
+						<a class="btn btn-outline-secondary" href="{{ path('play' , {'id': upload_game.id}) }}">Jouer</a>
+					{% endfor %}
 
-					<a class="btn btn-outline-secondary" href="{{ path('mathgame') }}">Jouer</a>
 				</div>
 				<div class="mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 
@@ -59,5 +65,4 @@
 			</div>
 		</div>
 	</main>
-
 {% endblock %}

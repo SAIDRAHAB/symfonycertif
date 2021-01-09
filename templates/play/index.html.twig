@@ -5,8 +5,7 @@
 
 {% block body %}
 
-	<iframe src="/" frameborder="0" style="overflow: hidden; height: 100%;
-		        width: 100%; position: absolute;" id="iframe"></iframe>
+	<iframe src="/" frameborder="0" style="overflow: hidden; height: 100%;width: 100%; position: absolute;" id="iframe"></iframe>
 
 
 	<script>
@@ -26,10 +25,11 @@ alert(e); // Security Error
 }
 
 // ...we can WRITE into location (and thus load something else into the iframe)!
-iframe.contentWindow.location = 'https://xonatis.academy/test-said/hanoi/'; // OK
+iframe.contentWindow.location = '{{ url }}'; // OK
 
 iframe.onload = null; // clear the handler, not to run it after the location change
 };
 	</script>
 
 {% endblock %}
+{% block footer %}{% endblock %}

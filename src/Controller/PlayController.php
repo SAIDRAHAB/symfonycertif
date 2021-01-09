@@ -10,14 +10,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PlayController extends AbstractController
 {
     /**
-     * @Route("/play", name="play" )
+     * @Route("/play/{id}", name="play", methods={"GET"})
      */
-    public function index(): Response
+    public function index(UploadGame $uploadGame): Response
     {
 
-        return $this->render('play/index.html.twig', [
-            'controller_name' => 'PlayController',
+        dump($uploadGame);
+        $url = $uploadGame->getUrl();
 
+
+        return $this->render('play/index.html.twig', [
+            'uploadgame' => $uploadGame,
+            'url' => $url,
         ]);
     }
 }

@@ -7,9 +7,35 @@
 
 	<iframe src="/" frameborder="0" style="overflow: hidden; height: 100%;width: 100%; position: absolute;" id="iframe"></iframe>
 
+	<!-- Modal gagner -->
+	<div class="modal fade" id="modalgagner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" id="exampleModalLabel">Jeu de memoire
+					</h2>
 
-	<script>
-		iframe.onload = function () { // we can get the reference to the inner window
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div id="txtmodalgagner" data="" class="p-3 mb-2 bg-success text-white"></div>
+					<div id="divCheckbox">
+						{{ form(form) }}
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input id="rejouer" type="button" class="btn btn-danger" onclick="refresh()" value="Rejouer">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			iframe.onload = function () { // we can get the reference to the inner window
 let iframeWindow = iframe.contentWindow; // OK
 try { // ...but not to the document inside it
 let doc = iframe.contentDocument; // ERROR
@@ -29,7 +55,13 @@ iframe.contentWindow.location = '{{ url }}'; // OK
 
 iframe.onload = null; // clear the handler, not to run it after the location change
 };
-	</script>
 
-{% endblock %}
-{% block footer %}{% endblock %}
+window.addEventListener('message', function (e) {
+console.log('parent received message!:  ', e.data);
+}, false);
+		</script>
+
+	{% endblock %}
+
+
+	{% block footer %}{% endblock %}

@@ -55,6 +55,11 @@ class Jeux
      */
     private $age;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $patient;
+
     public function __construct()
     {
         $this->relation = new ArrayCollection();
@@ -154,5 +159,17 @@ class Jeux
     public function __toString()
     {
         return $this->Userid;
+    }
+
+    public function getPatient(): ?string
+    {
+        return $this->patient;
+    }
+
+    public function setPatient(string $patient): self
+    {
+        $this->patient = $patient;
+
+        return $this;
     }
 }

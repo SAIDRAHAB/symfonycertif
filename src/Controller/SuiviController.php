@@ -74,7 +74,6 @@ class SuiviController extends AbstractController
      */
     public function ajoutpatient(Request $request): Response
     {
-
         $user = $this->getUser();
         $patient = new Patient();
         $patient->setUser($user);

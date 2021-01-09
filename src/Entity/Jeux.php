@@ -56,13 +56,20 @@ class Jeux
     private $age;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string",  nullable=true, length=255)
+     * 
      */
     private $patient;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Patient::class, mappedBy="jeux")
+     */
+    private $patientrelation;
 
     public function __construct()
     {
         $this->relation = new ArrayCollection();
+        $this->patientrelation = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -169,6 +176,36 @@ class Jeux
     public function setPatient(string $patient): self
     {
         $this->patient = $patient;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Patient[]
+     */
+    public function getPatientrelation(): Collection
+    {
+        return $this->patientrelation;
+    }
+
+    public function addPatientrelation(Patient $patientrelation): self
+    {
+        if (!$this->patientrelation->contains($patientrelation)) {
+            $this->patientrelation[] = $patientrelation;
+            $patientrelation->setJeux($this);
+        }
+
+        return $this;
+    }
+
+    public function removePatientrelation(Patient $patientrelation): self
+    {
+        if ($this->patientrelation->removeElement($patientrelation)) {
+            // set the owning side to null (unless already changed)
+            if ($patientrelation->getJeux() === $this) {
+                $patientrelation->setJeux(null);
+            }
+        }
 
         return $this;
     }

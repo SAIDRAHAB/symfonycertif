@@ -20,12 +20,15 @@ class JeuxType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $jeux = $options['data'];
+
         $builder
             ->add('Titre')
             ->add('Score')
             ->add('nom_prenom_patient', EntityType::class, [
                 'class' => Patient::class,
-                'choice_label' => 'prenom',
+                'choices' => $userPatients = $jeux->getUserid()->getPatients(),
             ])
             ->add('age')
             ->add('commentaire')

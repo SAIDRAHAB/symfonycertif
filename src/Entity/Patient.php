@@ -43,6 +43,11 @@ class Patient
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Jeux::class, inversedBy="patientrelation")
+     */
+    private $jeux;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,7 +67,7 @@ class Patient
 
     public function getPrenom(): ?string
     {
-        return $this->prenom . ' ' . $this->nom;
+        return $this->prenom;
     }
 
     public function setPrenom(string $prenom): self
@@ -109,6 +114,18 @@ class Patient
     }
     public function __toString()
     {
-        return $this->user;
+        return $this->prenom . ' ' . $this->nom;
+    }
+
+    public function getJeux(): ?Jeux
+    {
+        return $this->jeux;
+    }
+
+    public function setJeux(?Jeux $jeux): self
+    {
+        $this->jeux = $jeux;
+
+        return $this;
     }
 }

@@ -16,6 +16,7 @@ class ChoixJeuxHomeController extends AbstractController //controlleur de la pag
 
     public function index(UploadGameRepository $uploadGameRepository): Response
     {
+
         return $this->render('choix_jeux_home/index.html.twig', [
             'upload_games' => $uploadGameRepository->findAll(),
         ]);

@@ -26,7 +26,7 @@
 				<div class="my-3 py-3">
 					<h2 class="display-5">Memory</h2>
 					<p class="lead">Exercer votre capacité à memorisé les cartes</p>
-					{% for upload_game in upload_games %}
+					{% for upload_game in upload_games|slice(2, 2) %}
 						<a class="btn btn-outline-secondary" href="{{ path('play', {'id': upload_game.id}) }} ">Jouer</a>
 					{% endfor %}
 				</div>
@@ -40,7 +40,7 @@
 				<div class="my-3 p-3">
 					<h2 class="display-5">Tour de Hanoi</h2>
 					<p class="lead">Déplacer les disques jusqu'à la tour de droite</p>
-					{% for upload_game in upload_games %}
+					{% for upload_game in upload_games|slice(0, 1) %}
 						<a class="btn btn-outline-secondary" href="{{ path('play' , {'id': upload_game.id}) }}">Jouer</a>
 
 					{% endfor %}
@@ -53,7 +53,7 @@
 				<div class="my-3 p-3">
 					<h2 class="display-5">Mathematics</h2>
 					<p class="lead">Calculer rapidement sans faire d'erreur !!!</p>
-					{% for upload_game in upload_games %}
+					{% for upload_game in upload_games|slice(1, 1) %}
 						<a class="btn btn-outline-secondary" href="{{ path('play' , {'id': upload_game.id}) }}">Jouer</a>
 					{% endfor %}
 

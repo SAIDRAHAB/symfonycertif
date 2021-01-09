@@ -5,7 +5,7 @@
 
 {% block body %}
 
-	<iframe src="https://xonatis.academy/test-said/hanoi/" id="iframe"></iframe>
+	<iframe src="/" id="iframe"></iframe>
 
 
 	<script>
@@ -25,7 +25,7 @@ alert(e); // Security Error
 }
 
 // ...we can WRITE into location (and thus load something else into the iframe)!
-iframe.contentWindow.location = '/'; // OK
+iframe.contentWindow.location = 'https://xonatis.academy/test-said/hanoi/'; // OK
 
 iframe.onload = null; // clear the handler, not to run it after the location change
 };

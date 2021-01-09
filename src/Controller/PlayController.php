@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PlayController extends AbstractController
 {
     /**
-     * @Route("/play/{id}", name="play", methods={"GET"})
+     * @Route("/play/{id}", name="play", methods={"GET","POST"})
      */
     public function index(UploadGame $uploadGame, Request $request): Response
     {

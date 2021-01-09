@@ -20,8 +20,8 @@
 					</button>
 				</div>
 				<div class="modal-body">
-
-					<div id="txtmodalgagner" data="" class="p-3 mb-2 bg-success text-white"></div>
+Evaluation de l'orthophoniste
+					<div id="txtmodalgagner" data="" class="p-3 mb-2 text-white"></div>
 					<div id="divCheckbox">
 						{{ form(form) }}
 						</div>
@@ -51,14 +51,30 @@ alert(e); // Security Error
 }
 
 // ...we can WRITE into location (and thus load something else into the iframe)!
-iframe.contentWindow.location = '{{ url }}'; // OK
+iframe.contentWindow.location = ' {{url}} '; // OK
 
 iframe.onload = null; // clear the handler, not to run it after the location change
 };
 
 window.addEventListener('message', function (e) {
-console.log('parent received message!:  ', e.data);
+let objet = JSON.parse(e.data)
+$('#modalgagner').modal('show');
+
+
+document.getElementById('jeux_Score').setAttribute("value", objet['score']);
+document.getElementById('jeux_Titre').setAttribute("value", objet['game_name']);
+
+document.getElementById('jeux_Score').setAttribute("readonly", "readonly");
+document.getElementById('jeux_Titre').setAttribute("readonly", "readonly");
+
 }, false);
+
+
+
+
+
+
+
 		</script>
 
 	{% endblock %}

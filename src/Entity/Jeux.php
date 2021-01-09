@@ -29,8 +29,6 @@ class Jeux
      */
     private $Score;
 
-
-
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Jeuxobjet")
      * @ORM\JoinColumn(nullable=true)
@@ -146,10 +144,15 @@ class Jeux
         return $this->age;
     }
 
+
     public function setAge(string $age): self
     {
         $this->age = $age;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->Userid;
     }
 }

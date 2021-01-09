@@ -6,6 +6,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Entity\Jeux;
 use App\Entity\Patient;
 use App\Entity\User;
+use App\Repository\UserRepository;
+use App\Repository\PatientRepository;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -23,7 +25,7 @@ class JeuxType extends AbstractType
             ->add('Score')
             ->add('nom_prenom_patient', EntityType::class, [
                 'class' => Patient::class,
-                'choice_label' => 'nom',
+                'choice_label' => 'prenom',
             ])
             ->add('age')
             ->add('commentaire')

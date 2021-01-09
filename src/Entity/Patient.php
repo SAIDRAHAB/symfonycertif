@@ -62,7 +62,7 @@ class Patient
 
     public function getPrenom(): ?string
     {
-        return $this->prenom;
+        return $this->prenom . ' ' . $this->nom;
     }
 
     public function setPrenom(string $prenom): self
@@ -106,5 +106,9 @@ class Patient
         $this->user = $user;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->user;
     }
 }

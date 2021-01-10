@@ -3,93 +3,60 @@
 namespace App\Controller;
 
 use App\Entity\Jeux;
-use App\Form\JeuxType;
-use App\Repository\JeuxRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\UploadGame;
+use App\Repository\UploadGameRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/**
- * @Route("/jeux")
- */
-class JeuxController extends AbstractController //controlleur de l'ajout des jeux par l'admin
+class JeuxController extends AbstractController //controlleur de la page choix des jeux
 {
     /**
-     * @Route("/", name="jeux_index", methods={"GET"})
+     * @Route("/jeux", name="choix_jeux_home")
      */
-    public function index(JeuxRepository $jeuxRepository): Response
+
+    public function index(UploadGameRepository $uploadGameRepository): Response
     {
-        return $this->render('jeux/index.html.twig', [
-            'jeuxobjet' => $jeuxRepository->findAll(),
+
+        return $this->render('choix_jeux_home/index.html.twig', [
+            'upload_games' => $uploadGameRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="jeux_new", methods={"GET","POST"})
+     * @Route("/jeux/{id}", name="play", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function play(UploadGame $uploadGame, Request $request): Response
     {
-        $jeux = new Jeux();
-        $form = $this->createForm(JeuxType::class, $jeux);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $user = $this->getUser();
+        $jeux = new Jeux();
+        $jeux->setUserid($user);
+
+        $formulaire_contact = $this->createForm(JeuxType::class, $jeux);
+
+        $formulaire_contact->handleRequest($request);
+        if ($formulaire_contact->isSubmitted() && $formulaire_contact->isValid()) {
+            dump($jeux);
+            $jeux = $formulaire_contact->getData();
             $jeux->setDate(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($jeux);
             $entityManager->flush();
 
-            return $this->redirectToRoute('jeux_index');
+            return $this->redirectToRoute('choix_jeux_home');
         }
 
-        return $this->render('jeux/new.html.twig', [
-            'jeux' => $jeux,
-            'form' => $form->createView(),
+
+        dump($uploadGame);
+        $url = $uploadGame->getUrl();
+
+
+        return $this->render('play/index.html.twig', [
+            'uploadgame' => $uploadGame,
+            'url' => $url,
+            'form' => $formulaire_contact->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="jeux_show", methods={"GET"})
-     */
-    public function show(Jeux $jeux): Response
-    {
-        return $this->render('jeux/show.html.twig', [
-            'jeux' => $jeux,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="jeux_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Jeux $jeux): Response
-    {
-        $form = $this->createForm(JeuxType::class, $jeux);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('jeux_index');
-        }
-
-        return $this->render('jeux/edit.html.twig', [
-            'jeux' => $jeux,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="jeux_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Jeux $jeux): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $jeux->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($jeux);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('jeux_index');
     }
 }

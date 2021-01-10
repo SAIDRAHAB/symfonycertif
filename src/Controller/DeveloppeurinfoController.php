@@ -6,10 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DeveloppeurinfoController extends AbstractController
+class DeveloppeurInfoController extends AbstractController
 {
     /**
-     * @Route("/developpeurinfo", name="developpeurinfo")
+     * @Route("/developpeur-info", name="developpeurinfo")
      */
     public function index(): Response
     {

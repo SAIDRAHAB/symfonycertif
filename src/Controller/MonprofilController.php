@@ -3,42 +3,26 @@
 namespace App\Controller;
 
 
-use App\Entity\Jeux;
-use App\Form\JeuxType;
 use App\Repository\JeuxRepository;
-use App\Entity\User;
-use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MonprofilController extends AbstractController //controlleur de la page profil
+class MonProfilController extends AbstractController //controlleur de la page profil
 {
     /**
-     * @Route("/monprofil", name="monprofil", methods={"GET"})
+     * @Route("/mon-profil", name="monprofil", methods={"GET"})
      */
     public function index(JeuxRepository $jeuxRepository, UserRepository $user): Response
     {
         $user = $this->getUser();
 
-        $repository = $this->getDoctrine()->getRepository(User::class);
-
-
-
-
-        $Jeux = $this->getDoctrine()
-            ->getRepository(Jeux::class);
-
-
-
 
         $listescore = $jeuxRepository->findBy(array('Userid' => $this->getUser()));
         return $this->render('monprofil/index.html.twig', [
-            'controller_name' => 'MonprofilController',
             'listescore' => $listescore,
             'user' => $user,
-
         ]);
     }
 }

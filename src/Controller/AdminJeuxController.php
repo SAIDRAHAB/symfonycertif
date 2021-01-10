@@ -12,9 +12,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/upload/game")
+ * @Route("/admin/jeux")
  */
-class UploadGameController extends AbstractController //controlleur d'ajout de jeu js sur le site
+class AdminJeuxController extends AbstractController //controlleur d'ajout de jeu externe sur le site
 {
     /**
      * @Route("/", name="upload_game_index", methods={"GET"})
@@ -36,20 +36,6 @@ class UploadGameController extends AbstractController //controlleur d'ajout de j
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['upload_file']->getData();
-            if ($file) {
-                $file_name = $file_uploader->upload($file);
-                if (null !== $file_name) // for example
-                {
-                    $directory = $file_uploader->getTargetDirectory();
-                    $full_path = $directory . '/' . $file_name;
-                    // Do what you want with the full path file...
-                    // Why not read the content or parse it !!!
-                } else {
-                    // Oups, an error occured !!!
-                }
-            }
-
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($uploadGame);

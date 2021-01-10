@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MathgameController extends AbstractController //controlleur du jeux mathematics
+class QuiSommesNousController extends AbstractController //controlleur page qui somme nous
 {
     /**
-     * @Route("/mathgame", name="mathgame")
+     * @Route("/qui-sommes-nous", name="quisommenous")
      */
     public function index(): Response
     {
-        return $this->render('mathgame/index.html.twig', [
-            'controller_name' => 'MathgameController',
+        return $this->render('quisommenous/index.html.twig', [
+            'controller_name' => 'QuisommenousController',
         ]);
     }
 }

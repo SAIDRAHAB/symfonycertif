@@ -44,7 +44,7 @@ class Evaluation
     private $commentaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="evaluation")
+     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="evaluations")
      */
     private $patient;
 

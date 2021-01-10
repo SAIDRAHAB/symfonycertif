@@ -37,7 +37,6 @@ class JeuxController extends AbstractController //controlleur de la page choix d
         $formulaire_contact = $this->createForm(EvaluationType::class, $jeux);
         $formulaire_contact->handleRequest($request);
         if ($formulaire_contact->isSubmitted() && $formulaire_contact->isValid()) {
-            dump($jeux);
             $jeux = $formulaire_contact->getData();
             $jeux->setDate(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();

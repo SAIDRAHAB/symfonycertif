@@ -20,7 +20,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-Evaluation de l'orthophoniste
+					Evaluation de l'orthophoniste
 					<div id="txtmodalgagner" data="" class="p-3 mb-2 text-white"></div>
 					<div id="divCheckbox">
 						{{ form(form) }}
@@ -35,25 +35,23 @@ Evaluation de l'orthophoniste
 		</div>
 
 		<script>
-			iframe.onload = function () { // we can get the reference to the inner window
-let iframeWindow = iframe.contentWindow; // OK
-try { // ...but not to the document inside it
-let doc = iframe.contentDocument; // ERROR
+			iframe.onload = function () {
+let iframeWindow = iframe.contentWindow;
+try {
+let doc = iframe.contentDocument;
 } catch (e) {
-alert(e); // Security Error (another origin)
+alert(e);
 }
 
-// also we can't READ the URL of the page in iframe
-try { // Can't read URL from the Location object
-let href = iframe.contentWindow.location.href; // ERROR
+
+try {
+let href = iframe.contentWindow.location.href;
 } catch (e) {
-alert(e); // Security Error
+alert(e);
 }
 
-// ...we can WRITE into location (and thus load something else into the iframe)!
-iframe.contentWindow.location = ' {{url}} '; // OK
-
-iframe.onload = null; // clear the handler, not to run it after the location change
+iframe.contentWindow.location = '{{ url }}';
+iframe.onload = null;
 };
 
 window.addEventListener('message', function (e) {
@@ -61,23 +59,13 @@ let objet = JSON.parse(e.data)
 $('#modalgagner').modal('show');
 
 
-document.getElementById('jeux_Score').setAttribute("value", objet['score']);
-document.getElementById('jeux_Titre').setAttribute("value", objet['game_name']);
+document.getElementById('evaluation_Score').setAttribute("value", objet['score']);
+document.getElementById('evaluation_Titre').setAttribute("value", objet['game_name']);
 
-document.getElementById('jeux_Score').setAttribute("readonly", "readonly");
-document.getElementById('jeux_Titre').setAttribute("readonly", "readonly");
+document.getElementById('evaluation_Score').setAttribute("readonly", "readonly");
+document.getElementById('evaluation_Titre').setAttribute("readonly", "readonly");
 
 }, false);
-
-
-
-
-
-
-
 		</script>
 
 	{% endblock %}
-
-
-	{% block footer %}{% endblock %}

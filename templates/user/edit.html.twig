@@ -10,12 +10,12 @@
 
 		{{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-		<a class="btn btn-primary" href="{{ path('user_index') }}">Revenir au profil</a>
+		<a class="btn btn-primary" href="{{ path('monprofil') }}">Revenir au profil</a>
 
-	{% if is_granted('ROLE_ADMIN') %}
-		{{ include('user/_delete_form.html.twig') }}
-		{%endif%}
-	</div>
+		{% if is_granted('ROLE_ADMIN') %}
+			{{ include('user/_delete_form.html.twig') }}
+			{%endif%}
+		</div>
 	{% endblock %}
 
 	{% block footer %}{% endblock %}

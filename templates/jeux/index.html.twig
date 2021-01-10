@@ -1,25 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Admin score jeux
+{% block title %}Admin evaluation jeux
 {% endblock %}
 
 {% block body %}
 
 
 	<div class="container mb-5 mt-5 bg-light">
-		<h1 class="text-center mt-5 mb-5 ">Suivi de tout les patients</h1>
+		<h1 class="text-center mt-5 mb-5 ">Evaluation de tout les orthophonistes</h1>
 
 		<table class="table">
 			<thead>
 				<tr>
-				<th>Id</th>
-						<th>Jeu</th>
-						<th>Score</th>
-                        <th>Nom prenom du patient</th>
-                        <th>Age</th>
-                        <th>Commentaire de l'orthophoniste</th>
-                        <th>Date de l'evaluation</th>
-						<th>Actions</th>
+					<th>Id</th>
+					<th>Jeu</th>
+					<th>Score</th>
+					<th>Nom prenom du patient</th>
+					<th>Commentaire de l'orthophoniste</th>
+					<th>Date de l'evaluation</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,10 +28,9 @@
 						<td>{{ jeux.Titre }}</td>
 						<td>{{ jeux.Score }}</td>
 
-                            <td>{{ jeux.nomPrenomPatient }}</td>
-                            <td>{{ jeux.age }}</td>
-                            <td>{{ jeux.commentaire }}</td>
-                            <td>{{ jeux.date|date('d/m/Y H:i:s') }}</td>
+						<td>{{ jeux.patient }}</td>
+						<td>{{ jeux.commentaire }}</td>
+						<td>{{ jeux.date|date('d/m/Y H:i:s') }}</td>
 
 						<td>
 							<a href="{{ path('jeux_show', {'id': jeux.id}) }}" class="btn btn-success ">Voir</a>

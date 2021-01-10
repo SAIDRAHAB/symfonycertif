@@ -15,24 +15,11 @@ class JeuType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
+      ->add('Id')
       ->add('Titre')
       ->add('Description')
-      ->add('upload_file', FileType::class, [
-        'label' => 'Fichier à Uploader',
-        'mapped' => false,
-        'required' => true,
-        'constraints' => [
-          new File([
-            'mimeTypes' => [
-              'text/javascript',
-              'text/plain',
-              'text/x-java',
-            ],
-            'mimeTypesMessage' => "Ce document est invalide",
-          ])
-        ],
-      ])
-      ->add('send', SubmitType::class);;
+      ->add('url')
+      ->add('Enregistrer', SubmitType::class);;
   }
 
   public function configureOptions(OptionsResolver $resolver)

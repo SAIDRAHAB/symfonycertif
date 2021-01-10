@@ -100,7 +100,8 @@ class SecurityController extends AbstractController //controlleur du login logou
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject('Demande de réinitialisation')
                 ->html(
-                    "<p>Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Boo (said-rahab.fr). Veuillez cliquer sur le lien suivant : </p>" . $url,
+                    "<p>Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Boo (said-rahab.fr).
+                     Veuillez cliquer sur le lien suivant : </p>" . $url,
                     'text/html'
                 );
 

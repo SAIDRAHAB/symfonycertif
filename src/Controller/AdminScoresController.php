@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin/scores")
  */
-class AdminScoresController extends AbstractController //controlleur de l'ajout des jeux par l'admin
+class AdminScoresController extends AbstractController //controlleur  des Evaluation pour l'admin
 {
     /**
      * @Route("/", name="jeux_index", methods={"GET"})

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Service\FileUploader;
 use App\Entity\Jeu;
 use App\Form\JeuType;
 use App\Repository\JeuRepository;
@@ -29,7 +28,7 @@ class AdminEvaluationController extends AbstractController //controlleur d'ajout
     /**
      * @Route("/new", name="upload_game_new", methods={"GET","POST"})
      */
-    public function new(Request $request, FileUploader $file_uploader): Response
+    public function new(Request $request): Response
     {
         $uploadGame = new Jeu();
         $form = $this->createForm(JeuType::class, $uploadGame);

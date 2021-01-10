@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\JeuxRepository;
+use App\Repository\EvaluationsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=JeuxRepository::class)
+ * @ORM\Entity(repositoryClass=EvaluationsRepository::class)
  */
-class Jeux
+class Evaluations
 {
     /**
      * @ORM\Id
@@ -22,7 +22,7 @@ class Jeux
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Titre;
+    private $titre;
 
     /**
      * @ORM\Column(type="integer")
@@ -30,10 +30,10 @@ class Jeux
     private $Score;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Jeuxobjet")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Evaluationsobjet")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $Userid;
+    private $user;
 
     /**
      * @ORM\Column(type="datetime")
@@ -79,12 +79,12 @@ class Jeux
 
     public function getTitre(): ?string
     {
-        return $this->Titre;
+        return $this->titre;
     }
 
-    public function setTitre(string $Titre): self
+    public function setTitre(string $titre): self
     {
-        $this->Titre = $Titre;
+        $this->titre = $titre;
 
         return $this;
     }
@@ -103,14 +103,14 @@ class Jeux
 
 
 
-    public function getUserid(): ?User
+    public function getUser(): ?User
     {
-        return $this->Userid;
+        return $this->user;
     }
 
-    public function setUserid(?User $Userid): self
+    public function setUser(?User $user): self
     {
-        $this->Userid = $Userid;
+        $this->user = $user;
 
         return $this;
     }
@@ -192,7 +192,7 @@ class Jeux
     {
         if (!$this->patientrelation->contains($patientrelation)) {
             $this->patientrelation[] = $patientrelation;
-            $patientrelation->setJeux($this);
+            $patientrelation->setEvaluations($this);
         }
 
         return $this;
@@ -202,8 +202,8 @@ class Jeux
     {
         if ($this->patientrelation->removeElement($patientrelation)) {
             // set the owning side to null (unless already changed)
-            if ($patientrelation->getJeux() === $this) {
-                $patientrelation->setJeux(null);
+            if ($patientrelation->getEvaluations() === $this) {
+                $patientrelation->setEvaluations(null);
             }
         }
 

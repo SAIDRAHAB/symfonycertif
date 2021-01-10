@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin/jeux")
  */
-class AdminJeuxController extends AbstractController //controlleur d'ajout de jeu externe sur le site
+class AdminEvaluationsuationsController extends AbstractController //controlleur d'ajout de jeu externe sur le site
 {
     /**
      * @Route("/", name="upload_game_index", methods={"GET"})

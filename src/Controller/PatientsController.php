@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Patient;
 use App\Form\AjoutPatientType;
-use App\Repository\JeuxRepository;
+use App\Repository\EvaluationsRepository;
 use App\Repository\PatientRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +18,7 @@ class PatientsController extends AbstractController
     /**
      * @Route("/suivi", name="suivi")
      */
-    public function index(JeuxRepository $jeuxRepository, UserRepository $user, PatientRepository $patientRepository): Response
+    public function index(EvaluationsRepository $jeuxRepository, UserRepository $user, PatientRepository $patientRepository): Response
     {
 
         $user = $this->getUser();

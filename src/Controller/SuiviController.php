@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 
-use App\Entity\Jeux;
-use App\Form\JeuxType;
+use App\Entity\Evaluations;
+use App\Form\EvaluationsType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,10 +20,10 @@ class SuiviController extends AbstractController
     {
 
         $user = $this->getUser();
-        $jeux = new Jeux();
-        $jeux->setUserid($user);
+        $jeux = new Evaluations();
+        $jeux->setUser($user);
 
-        $formulaire_contact = $this->createForm(JeuxType::class, $jeux);
+        $formulaire_contact = $this->createForm(EvaluationsType::class, $jeux);
 
         $formulaire_contact->handleRequest($request);
         if ($formulaire_contact->isSubmitted() && $formulaire_contact->isValid()) {

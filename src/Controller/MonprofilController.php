@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 
-use App\Repository\JeuxRepository;
+use App\Repository\EvaluationsRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +14,7 @@ class MonProfilController extends AbstractController //controlleur de la page pr
     /**
      * @Route("/mon-profil", name="monprofil", methods={"GET"})
      */
-    public function index(JeuxRepository $jeuxRepository, UserRepository $user): Response
+    public function index(EvaluationsRepository $jeuxRepository, UserRepository $user): Response
     {
         $user = $this->getUser();
 

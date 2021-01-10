@@ -44,7 +44,7 @@ class Patient
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Jeux::class, inversedBy="patientrelation")
+     * @ORM\ManyToOne(targetEntity=Evaluations::class, inversedBy="patientrelation")
      */
     private $jeux;
 
@@ -117,12 +117,12 @@ class Patient
         return $this->prenom . ' ' . $this->nom;
     }
 
-    public function getJeux(): ?Jeux
+    public function getEvaluations(): ?Evaluations
     {
         return $this->jeux;
     }
 
-    public function setJeux(?Jeux $jeux): self
+    public function setEvaluations(?Evaluations $jeux): self
     {
         $this->jeux = $jeux;
 

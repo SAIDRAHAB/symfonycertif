@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use App\Entity\Jeux;
+use App\Entity\Evaluations;
 use App\Entity\Patient;
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
-class JeuxType extends AbstractType
+class EvaluationsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -28,7 +28,7 @@ class JeuxType extends AbstractType
             ->add('Score')
             ->add('nom_prenom_patient', EntityType::class, [
                 'class' => Patient::class,
-                'choices' => $userPatients = $jeux->getUserid()->getPatients(),
+                'choices' => $jeux->getUser()->getPatients(),
             ])
             ->add('age')
             ->add('commentaire')
@@ -38,7 +38,7 @@ class JeuxType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Jeux::class,
+            'data_class' => Evaluations::class,
         ]);
     }
 }

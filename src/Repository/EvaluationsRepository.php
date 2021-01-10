@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Jeux;
+use App\Entity\Evaluations;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Jeux|null find($id, $lockMode = null, $lockVersion = null)
- * @method Jeux|null findOneBy(array $criteria, array $orderBy = null)
- * @method Jeux[]    findAll()
- * @method Jeux[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Evaluations|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Evaluations|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Evaluations[]    findAll()
+ * @method Evaluations[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class JeuxRepository extends ServiceEntityRepository
+class EvaluationsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Jeux::class);
+        parent::__construct($registry, Evaluations::class);
     }
 
     // /**
-    //  * @return Jeux[] Returns an array of Jeux objects
+    //  * @return Evaluations[] Returns an array of Evaluations objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class JeuxRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Jeux
+    public function findOneBySomeField($value): ?Evaluations
     {
         return $this->createQueryBuilder('j')
             ->andWhere('j.exampleField = :val')

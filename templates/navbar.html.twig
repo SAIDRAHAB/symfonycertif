@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+	<a class="navbar-brand" href="/"><img src="{{ asset('img/ghost.png') }}" width="32" height="32" alt="logo boo" loading="lazy" style="height: 32px;"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarColor01">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('home') }}">Acceuil</a>
+			</li>
+			{% if is_granted('ROLE_USER') %}
+				<li class="nav-item ">
+					<a class="nav-link" href="{{ path('choix_jeux_home') }}">Jeux
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Suivi</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{{ path('suivi') }}">Mes patients</a>
+						<a class="dropdown-item" href="{{ path('suiviajout') }}">Ajouter une evaluation</a>
+
+					</div>
+				</li>
+
+
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('monprofil') }}">Profil</a>
+				</li>
+
+
+				{%endif%}
+				{% if not app.user %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('orthophonie') }}">Orthophonie</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+					</li>
+				{% endif %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('tarifs') }}">Tarifs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('quisommenous') }}">Qui sommes-nous ?</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('contact') }}">Contact</a>
+				</li>
+				{% if is_granted('ROLE_USER') %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_logout') }}">Se deconnecter</a>
+					</li>
+					{%endif%}
+					{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrateur</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="{{ path('upload_game_index') }}">Ajout de jeu</a>
+								<a class="dropdown-item" href="{{ path('jeux_index') }}">Liste des scores</a>
+								<a class="dropdown-item" href="{{ path('user_index') }}">Utilisateur</a>
+							</div>
+						</li>
+						{%endif%}
+					</ul>
+				</div>
+			</nav>

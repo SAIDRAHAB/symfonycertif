@@ -3,9 +3,12 @@
 {% block title %}Se connecter sur boo
 {% endblock %}
 
+{% block stylesheets %}
+	<link href="{{ asset('css/login/loginhome.css') }}" rel="stylesheet"/>
+{% endblock %}
+
 {% block body %}
 
-	<link href="{{ asset('css/login/loginhome.css') }}" rel="stylesheet"/>
 	<div class="main">
 
 		{% for message in app.flashes('danger') %}

@@ -44,16 +44,7 @@ class SecurityController extends AbstractController //controlleur du login logou
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-    /**
-     * @Route("/", name="base")
-     * 
-     */
-    public function index(): Response
-    {
-        return $this->render('base.html.twig', [
-            'controller_name' => 'base',
-        ]);
-    }
+
 
     /**
      * @Route("/oubli-pass", name="app_forgotten_password")
@@ -102,7 +93,7 @@ class SecurityController extends AbstractController //controlleur du login logou
 
 
             // On génère l'e-mail
-          
+
             $email = (new Email())
                 ->from('admin@said-rahab.fr')
                 ->to($user->getEmail())

@@ -22,19 +22,10 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('hanoigame', './assets/styles/hanoi.css')
-    
-     .addEntry('smileygame', './assets/styles/smiley.css')
-
-     .addEntry('mathgame', './assets/styles/math.css')
-     .addEntry('memorygame', './assets/styles/memory.css')
-     .addEntry('mathgamejs', './jeuxjs/math.js')/* 
-    .addEntry('bootstrap', './assets/styles/bootstrapsketchy.css') 
-      */
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    .enableStimulusBridge('./assets/controllers.json')
-
+    /*     .enableStimulusBridge('./assets/controllers.json')
+     */
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
@@ -80,6 +71,6 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-;
+    ;
 
 module.exports = Encore.getWebpackConfig();

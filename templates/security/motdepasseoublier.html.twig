@@ -3,9 +3,11 @@
 {% block title %}Mot de passe oublié
 {% endblock %}
 
-{% block body %}
-
+{% block stylesheets %}
 	<link href="{{ asset('css/login/loginhome.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
 	<div>
 		{% for message in app.flashes('warning') %}
 			<div class="alert alert-danger">

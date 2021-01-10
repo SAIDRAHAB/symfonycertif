@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Patient;
 use App\Form\AjoutPatientType;
-use App\Repository\EvaluationsRepository;
 use App\Repository\PatientRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,18 +15,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PatientsController extends AbstractController
 {
     /**
-     * @Route("/suivi", name="suivi")
+     * @Route("/patients", name="patients")
      */
-    public function index(EvaluationsRepository $jeuxRepository, UserRepository $user, PatientRepository $patientRepository): Response
+    public function index(UserRepository $user, PatientRepository $patientRepository): Response
     {
 
         $user = $this->getUser();
 
-        $listescore = $jeuxRepository->findBy(array('Userid' => $this->getUser()));
-
-        return $this->render('suivi/index.html.twig', [
+        return $this->render('patient/index.html.twig', [
             'controller_name' => 'SuiviController',
-            'listescore' => $listescore,
             'user' => $user,
             'listepatient' => $patientRepository->findByUser($user),
         ]);
@@ -55,7 +51,7 @@ class PatientsController extends AbstractController
             return $this->redirectToRoute('choix_jeux_home');
         }
 
-        return $this->render('suivi/ajoutpatient.html.twig', [
+        return $this->render('patient/ajoutpatient.html.twig', [
             'form' => $formulaire_ajoutpatient->createView(),
             'user' => $user,
         ]);

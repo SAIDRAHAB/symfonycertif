@@ -2,21 +2,22 @@
 
 namespace App\Controller;
 
-use App\Entity\Evaluations;
-use App\Entity\UploadGame;
-use App\Repository\UploadGameRepository;
+use App\Entity\Evaluation;
+use App\Form\EvaluationType;
+use App\Entity\Jeu;
+use App\Repository\JeuRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class EvaluationsController extends AbstractController //controlleur de la page choix des jeux
+class JeuxController extends AbstractController //controlleur de la page choix des jeux
 {
     /**
      * @Route("/jeux", name="choix_jeux_home")
      */
 
-    public function index(UploadGameRepository $uploadGameRepository): Response
+    public function index(JeuRepository $uploadGameRepository): Response
     {
 
         return $this->render('choix_jeux_home/index.html.twig', [
@@ -27,15 +28,13 @@ class EvaluationsController extends AbstractController //controlleur de la page 
     /**
      * @Route("/jeux/{id}", name="play", methods={"GET","POST"})
      */
-    public function play(UploadGame $uploadGame, Request $request): Response
+    public function play(Jeu $uploadGame, Request $request): Response
     {
-
         $user = $this->getUser();
-        $jeux = new Evaluations();
+        $jeux = new Evaluation();
         $jeux->setUser($user);
 
-        $formulaire_contact = $this->createForm(EvaluationsType::class, $jeux);
-
+        $formulaire_contact = $this->createForm(EvaluationType::class, $jeux);
         $formulaire_contact->handleRequest($request);
         if ($formulaire_contact->isSubmitted() && $formulaire_contact->isValid()) {
             dump($jeux);
@@ -48,10 +47,7 @@ class EvaluationsController extends AbstractController //controlleur de la page 
             return $this->redirectToRoute('choix_jeux_home');
         }
 
-
-        dump($uploadGame);
         $url = $uploadGame->getUrl();
-
 
         return $this->render('play/index.html.twig', [
             'uploadgame' => $uploadGame,

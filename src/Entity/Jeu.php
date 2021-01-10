@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\UploadGameRepository;
+use App\Repository\JeuRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=UploadGameRepository::class)
+ * @ORM\Entity(repositoryClass=JeuRepository::class)
  */
-class UploadGame
+class Jeu
 {
     /**
      * @ORM\Id

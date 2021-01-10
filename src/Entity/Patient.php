@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\PatientRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -44,9 +47,15 @@ class Patient
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Evaluations::class, inversedBy="patientrelation")
+     * @ORM\OneToMany(targetEntity=Evaluation::class, mappedBy="patient")
      */
-    private $jeux;
+    private $evaluations;
+
+    public function __construct()
+    {
+        $this->relation = new ArrayCollection();
+        $this->patientrelation = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -112,19 +121,38 @@ class Patient
 
         return $this;
     }
+
     public function __toString()
     {
         return $this->prenom . ' ' . $this->nom;
     }
 
-    public function getEvaluations(): ?Evaluations
+    /**
+     * @return Collection|Evaluation[]
+     */
+    public function getEvaluations(): Collection
     {
-        return $this->jeux;
+        return $this->evaluations;
     }
 
-    public function setEvaluations(?Evaluations $jeux): self
+    public function addEvaluation(Evaluation $evaluation): self
     {
-        $this->jeux = $jeux;
+        if (!$this->evaluations->contains($evaluation)) {
+            $this->evaluations[] = $evaluation;
+            $evaluation->setPatient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvaluation(Evaluation $evaluations): self
+    {
+        if ($this->patientrelation->removeElement($evaluations)) {
+            // set the owning side to null (unless already changed)
+            if ($evaluations->getPatient() === $this) {
+                $evaluations->setPatient(null);
+            }
+        }
 
         return $this;
     }

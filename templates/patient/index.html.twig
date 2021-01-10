@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suivi
+{% endblock %}
+
+{% block body %}
+
+	<div class="container mt-5 mb-5 bg-light">
+
+		<h1 class="display-3 mb-5">Mes patients</h1>
+		<table class="table clearfix">
+			<thead class="thead-light">
+				<tr>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Age</th>
+					<th>Pathologie</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for patient in listepatient %}
+					<tr>
+						<td>{{ patient.Nom }}</td>
+						<td>{{ patient.Prenom }}</td>
+						<td>{{ patient.age }}</td>
+						<td>{{ patient.Pathologie }}</td>
+					</tr>
+
+				{% else %}
+					<tr>
+						<td class="text-warning" colspan="6">Vous avez aucun patient enregistrer ! ;)
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+
+		<a href="{{ path('patientajout') }}" class="btn btn-primary " role="button">Ajouter un patient</a>
+	</div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -47,9 +47,9 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Evaluations::class, mappedBy="Userid", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Evaluation::class, mappedBy="user", orphanRemoval=true)
      */
-    private $Evaluationsobjet;
+    private $Evaluationobjet;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
@@ -70,7 +70,7 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->Evaluationsobjet = new ArrayCollection();
+        $this->Evaluationobjet = new ArrayCollection();
         $this->patients = new ArrayCollection();
     }
 
@@ -165,26 +165,26 @@ class User implements UserInterface
 
 
     /**
-     * @return Collection|Evaluations[]
+     * @return Collection|Evaluation[]
      */
-    public function getEvaluationsobjet(): Collection
+    public function getEvaluationobjet(): Collection
     {
-        return $this->Evaluationsobjet;
+        return $this->Evaluationobjet;
     }
 
-    public function addEvaluationsobjet(Evaluations $jeuxobjet): self
+    public function addEvaluationobjet(Evaluation $jeuxobjet): self
     {
-        if (!$this->Evaluationsobjet->contains($jeuxobjet)) {
-            $this->Evaluationsobjet[] = $jeuxobjet;
+        if (!$this->Evaluationobjet->contains($jeuxobjet)) {
+            $this->Evaluationobjet[] = $jeuxobjet;
             $jeuxobjet->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeEvaluationsobjet(Evaluations $jeuxobjet): self
+    public function removeEvaluationobjet(Evaluation $jeuxobjet): self
     {
-        if ($this->Evaluationsobjet->removeElement($jeuxobjet)) {
+        if ($this->Evaluationobjet->removeElement($jeuxobjet)) {
             // set the owning side to null (unless already changed)
             if ($jeuxobjet->getUser() === $this) {
                 $jeuxobjet->setUser(null);

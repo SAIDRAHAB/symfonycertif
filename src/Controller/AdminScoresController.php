@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Evaluations;
-use App\Form\EvaluationsType;
-use App\Repository\EvaluationsRepository;
+use App\Entity\Evaluation;
+use App\Form\EvaluationType;
+use App\Repository\EvaluationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +18,7 @@ class AdminScoresController extends AbstractController //controlleur de l'ajout 
     /**
      * @Route("/", name="jeux_index", methods={"GET"})
      */
-    public function index(EvaluationsRepository $jeuxRepository): Response
+    public function index(EvaluationRepository $jeuxRepository): Response
     {
         return $this->render('jeux/index.html.twig', [
             'jeuxobjet' => $jeuxRepository->findAll(),
@@ -30,8 +30,8 @@ class AdminScoresController extends AbstractController //controlleur de l'ajout 
      */
     public function new(Request $request): Response
     {
-        $jeux = new Evaluations();
-        $form = $this->createForm(EvaluationsType::class, $jeux);
+        $jeux = new Evaluation();
+        $form = $this->createForm(EvaluationType::class, $jeux);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,7 +52,7 @@ class AdminScoresController extends AbstractController //controlleur de l'ajout 
     /**
      * @Route("/{id}", name="jeux_show", methods={"GET"})
      */
-    public function show(Evaluations $jeux): Response
+    public function show(Evaluation $jeux): Response
     {
         return $this->render('jeux/show.html.twig', [
             'jeux' => $jeux,
@@ -62,9 +62,9 @@ class AdminScoresController extends AbstractController //controlleur de l'ajout 
     /**
      * @Route("/{id}/edit", name="jeux_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Evaluations $jeux): Response
+    public function edit(Request $request, Evaluation $jeux): Response
     {
-        $form = $this->createForm(EvaluationsType::class, $jeux);
+        $form = $this->createForm(EvaluationType::class, $jeux);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -82,7 +82,7 @@ class AdminScoresController extends AbstractController //controlleur de l'ajout 
     /**
      * @Route("/{id}", name="jeux_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Evaluations $jeux): Response
+    public function delete(Request $request, Evaluation $jeux): Response
     {
         if ($this->isCsrfTokenValid('delete' . $jeux->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

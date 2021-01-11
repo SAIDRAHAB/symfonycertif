@@ -1,10 +1,20 @@
-#footer{
-    background-image: url('../img/bg/footer.png');
-    background-size: cover;
-    background-position: bottom;
-}
 #header{
     background-image: url('../img/bg/header.png');
     background-size: cover;
     background-position: bottom;
 }
+.full-height {
+    height: 100vh;
+}
+nav {
+    background-color: #4f487e;
+}
+#footer{
+    background-color: #4f487e;
+    color: #a39ccc;
+}
+
+#footer a {
+    color: #a39ccc;
+}
+

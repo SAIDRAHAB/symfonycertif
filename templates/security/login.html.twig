@@ -9,73 +9,30 @@
 
 {% block body %}
 
-	<div class="main">
+	{% for message in app.flashes('danger') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('warning') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('message') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div class="container full-height">
+		<div class="row">
+			<div class="col"></div>
+			<div class="col pt-5">
+				<h1 class="display-3 text-white">Identifiez-vous</h1>
+				{% include "security/login-form.html.twig" %}
 
-		{% for message in app.flashes('danger') %}
-			<div class="alert alert-danger">
-				{{ message }}
 			</div>
-		{% endfor %}
-		{% for message in app.flashes('warning') %}
-			<div class="alert alert-danger">
-				{{ message }}
-			</div>
-		{% endfor %}
-		{% for message in app.flashes('message') %}
-			<div class="alert alert-danger">
-				{{ message }}
-			</div>
-		{% endfor %}
-		<div class="container">
-			<center>
-				<div class="middle">
-					<div id="login">
-						<form method="post">
-							{% if error %}
-								<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-							{% endif %}
-
-							{% if app.user %}
-								<div class="mb-3">
-									You are logged in as
-									{{ app.user.username }},
-									<a href="{{ path('app_logout') }}">Logout</a>
-								</div>
-							{% endif %}
-							<fieldset class="clearfix">
-
-								<p>
-									<span class="fa fa-user"></span><input type="text" placeholder="Adresse email" value="{{ last_username }}" name="email" required></p>
-
-								<p>
-									<span class="fa fa-lock"></span><input type="password" placeholder="Mot de passe" name="password" required></p>
-
-								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-								<div>
-									<span style="width:48%; text-align:left;  display: inline-block;">
-										<a class="small-text" href="{{ path('app_forgotten_password') }}">Mot de passe oublié?</a>
-									</span>
-									<span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Se connecter"></span>
-								</div>
-							</fieldset>
-							<div class="clearfix"></div>
-						</form>
-
-						<div class="clearfix"></div>
-
-					</div>
-					<!-- end login -->
-					<div class="logo" style="margin-top: 25px;">
-						<img src="{{ asset('img/ghost128px.png') }}" width="128" height="128" alt="logo boo login" loading="lazy">
-
-						<div class="clearfix"></div>
-					</div>
-
-				</div>
-			</center>
 		</div>
 	</div>
-
 {% endblock %}
 {% block footer %}{% endblock %}

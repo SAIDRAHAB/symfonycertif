@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mot de passe oublié
+{% block title %}Se connecter sur boo
 {% endblock %}
 
 {% block stylesheets %}
@@ -8,40 +8,29 @@
 {% endblock %}
 
 {% block body %}
-	<div>
-		{% for message in app.flashes('warning') %}
-			<div class="alert alert-danger">
-				{{ message }}
-			</div>
-		{% endfor %}
 
-		<div class="main">
-			<div class="container">
-				<center>
-					<div class="middle">
-						<div id="login">
-							<form method="post">
-								<fieldset class="clearfix text-warning" style="margin-top: 60px;">
-									{{form(emailForm)}}
-									</fieldset>
-									<div class="clearfix"></div>
-								</form>
-
-								<div class="clearfix"></div>
-
-							</div>
-							<!-- end login -->
-							<div class="logo" style="margin-top: 25px;">
-								<img src="{{ asset('img/ghost128px.png') }}" width="128" height="128" alt="logo boo mot de passe oublié" loading="lazy">
-
-								<div class="clearfix"></div>
-							</div>
-
-						</div>
-					</center>
+	{% for message in app.flashes('danger') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('warning') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('message') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div class="container full-height">
+		<div class="row">
+			<div class="col"></div>
+			<div class="col pt-5">
+				{{form(emailForm)}}
 				</div>
 			</div>
-
-		{% endblock %}
-
-		{% block footer %}{% endblock %}
+		</div>
+	{% endblock %}
+	{% block footer %}{% endblock %}

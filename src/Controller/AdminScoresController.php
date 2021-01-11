@@ -20,7 +20,7 @@ class AdminScoresController extends AbstractController //controlleur  des Evalua
      */
     public function index(EvaluationRepository $jeuxRepository): Response
     {
-        return $this->render('jeux/index.html.twig', [
+        return $this->render('evaluationCRUD/index.html.twig', [
             'jeuxobjet' => $jeuxRepository->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class AdminScoresController extends AbstractController //controlleur  des Evalua
             return $this->redirectToRoute('jeux_index');
         }
 
-        return $this->render('jeux/new.html.twig', [
+        return $this->render('evaluationCRUD/new.html.twig', [
             'jeux' => $jeux,
             'form' => $form->createView(),
         ]);
@@ -54,7 +54,7 @@ class AdminScoresController extends AbstractController //controlleur  des Evalua
      */
     public function show(Evaluation $jeux): Response
     {
-        return $this->render('jeux/show.html.twig', [
+        return $this->render('evaluationCRUD/show.html.twig', [
             'jeux' => $jeux,
         ]);
     }
@@ -73,7 +73,7 @@ class AdminScoresController extends AbstractController //controlleur  des Evalua
             return $this->redirectToRoute('jeux_index');
         }
 
-        return $this->render('jeux/edit.html.twig', [
+        return $this->render('evaluationCRUD/edit.html.twig', [
             'jeux' => $jeux,
             'form' => $form->createView(),
         ]);

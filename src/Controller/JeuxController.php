@@ -20,7 +20,7 @@ class JeuxController extends AbstractController //controlleur de la page choix d
     public function index(JeuRepository $uploadGameRepository): Response
     {
 
-        return $this->render('choix_jeux_home/index.html.twig', [
+        return $this->render('choix_jeux_evaluation/index.html.twig', [
             'upload_games' => $uploadGameRepository->findAll(),
         ]);
     }

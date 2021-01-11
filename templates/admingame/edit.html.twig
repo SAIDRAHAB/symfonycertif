@@ -7,11 +7,11 @@
 	<div class="container">
 		<h1>Modifier jeux uploader</h1>
 
-		{{ include('upload_game/_form.html.twig', {'button_label': 'Update'}) }}
+		{{ include('admingame/_form.html.twig', {'button_label': 'Update'}) }}
 
 		<a href="{{ path('upload_game_index') }}" class="btn btn-light btn-lg square" role="button">Revenir</a>
 
-		{{ include('upload_game/_delete_form.html.twig') }}
+		{{ include('admingame/_delete_form.html.twig') }}
 	</div>
 {% endblock %}
 

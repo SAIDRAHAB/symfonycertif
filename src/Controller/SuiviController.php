@@ -25,7 +25,7 @@ class SuiviController extends AbstractController
 
         $listescore = $jeuxRepository->findBy(array('user' => $this->getUser()));
 
-        return $this->render('suivi/index.html.twig', [
+        return $this->render('evaluation/index.html.twig', [
             'controller_name' => 'SuiviController',
             'listescore' => $listescore,
             'user' => $user
@@ -55,7 +55,7 @@ class SuiviController extends AbstractController
             return $this->redirectToRoute('choix_jeux_home');
         }
 
-        return $this->render('suivi/ajoutscore.html.twig', [
+        return $this->render('evaluation/ajoutscore.html.twig', [
             'controller_name' => 'MemoryController',
             'form' => $formulaire_contact->createView(),
         ]);

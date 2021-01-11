@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin/jeux")
  */
-class AdminEvaluationController extends AbstractController //controlleur d'ajout de jeu externe sur le site
+class AdminGameController extends AbstractController //controlleur d'ajout de jeu externe sur le site
 {
     /**
      * @Route("/", name="upload_game_index", methods={"GET"})
      */
     public function index(JeuRepository $uploadGameRepository): Response
     {
-        return $this->render('upload_game/index.html.twig', [
+        return $this->render('admingame/index.html.twig', [
             'upload_games' => $uploadGameRepository->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class AdminEvaluationController extends AbstractController //controlleur d'ajout
             return $this->redirectToRoute('upload_game_index');
         }
 
-        return $this->render('upload_game/new.html.twig', [
+        return $this->render('admingame/new.html.twig', [
             'upload_game' => $uploadGame,
             'form' => $form->createView(),
         ]);
@@ -54,7 +54,7 @@ class AdminEvaluationController extends AbstractController //controlleur d'ajout
      */
     public function show(Jeu $uploadGame): Response
     {
-        return $this->render('upload_game/show.html.twig', [
+        return $this->render('admingame/show.html.twig', [
             'upload_game' => $uploadGame,
         ]);
     }
@@ -73,7 +73,7 @@ class AdminEvaluationController extends AbstractController //controlleur d'ajout
             return $this->redirectToRoute('upload_game_index');
         }
 
-        return $this->render('upload_game/edit.html.twig', [
+        return $this->render('admingame/edit.html.twig', [
             'upload_game' => $uploadGame,
             'form' => $form->createView(),
         ]);

@@ -48,7 +48,7 @@ class JeuxController extends AbstractController //controlleur de la page choix d
 
         $url = $uploadGame->getUrl();
 
-        return $this->render('play/index.html.twig', [
+        return $this->render('play_iframe/index.html.twig', [
             'uploadgame' => $uploadGame,
             'url' => $url,
             'form' => $formulaire_contact->createView(),

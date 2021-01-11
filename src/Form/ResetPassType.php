@@ -14,7 +14,9 @@ class ResetPassType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('envoyer', SubmitType::class);
+            ->add('envoyer', SubmitType::class, [
+                'attr' => ['class' => 'btn btn-light'],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

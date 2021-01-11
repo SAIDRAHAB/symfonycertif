@@ -3,11 +3,17 @@
 {% block title %}Interface Gestion des Users
 {% endblock %}
 
+
+{% block stylesheets %}
+	<link href="{{ asset('css/bg1-alt.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
 {% block body %}
 
 	{% if is_granted('ROLE_ADMIN') %}
 
-		<div class="container bg-light">
+		<div class="container ">
 
 			<h1 class="text-center mt-5 mb-5 ">Interface Gestion des Users</h1>
 

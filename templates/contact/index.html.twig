@@ -3,9 +3,14 @@
 {% block title %}Contacter administrateur
 {% endblock %}
 
+
+{% block stylesheets %}
+	<link href="{{ asset('css/contact.css') }}" rel="stylesheet"/>
+{% endblock %}
+
 {% block body %}
 
-	<div class="container my-5 py-5 bg-light">
+	<div class="container my-5 py-5">
 		{% for message in app.flashes('message') %}
 			<div class="alert alert-success">
 				{{ message }}

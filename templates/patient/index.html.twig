@@ -3,13 +3,19 @@
 {% block title %}Suivi
 {% endblock %}
 
+
+{% block stylesheets %}
+	<link href="{{ asset('css/espace.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
 {% block body %}
 
-	<div class="container mt-5 mb-5 bg-light">
+	<div class="container mt-5 mb-5 ">
 
 		<h1 class="display-3 mb-5">Mes patients</h1>
-		<table class="table clearfix">
-			<thead class="thead-light">
+		<table class="table table-striped table-primary">
+			<thead class="thead">
 				<tr>
 					<th>Nom</th>
 					<th>Prenom</th>

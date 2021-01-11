@@ -4,10 +4,18 @@
 	Developpeur!
 {% endblock %}
 
+
+{% block stylesheets %}
+	<link href="{{ asset('css/bg1-alt.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
 {% block body %}
+
+
 	<div class="row">
 		<div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+			<div class=" me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 
 				<div class="my-3 p-3">
 					<h2 class="display-5">Pour les developpeurs</h2>
@@ -17,11 +25,11 @@
 					<p>Prenez soin de mettre à notre disposition dans votre js associé les lignes suivantes:
 						<div class="container text-success">
 							$('#modalgagner').modal('show');
-													parent.postMessage(JSON.stringify({
-							            'game_name' : 'TITRE DE VOTRE JEU',
-							            'author' : 'VOTRE NOM',
-							            'score' : VALEUR DU SCORE
-							        })</div>
+																											parent.postMessage(JSON.stringify({
+																					            'game_name' : 'TITRE DE VOTRE JEU',
+																					            'author' : 'VOTRE NOM',
+																					            'score' : VALEUR DU SCORE
+																					        })</div>
 
 					</p>
 				</div>

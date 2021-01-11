@@ -3,9 +3,15 @@
 {% block title %}Modifier
 {% endblock %}
 
+
+{% block stylesheets %}
+	<link href="{{ asset('css/bg1-alt.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
 {% block body %}
 
-	<div class="container bg-light">
+	<div class="container ">
 		<h1 class="text-center mt-5 mb-5 ">Modifier mes informations</h1>
 
 		{{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}

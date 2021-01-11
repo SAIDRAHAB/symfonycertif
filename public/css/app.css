@@ -1,0 +1,10 @@
+#footer{
+    background-image: url('../img/bg/footer.png');
+    background-size: cover;
+    background-position: bottom;
+}
+#header{
+    background-image: url('../img/bg/header.png');
+    background-size: cover;
+    background-position: bottom;
+}

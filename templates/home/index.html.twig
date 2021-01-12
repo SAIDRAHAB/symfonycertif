@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
+{% block title %}Boo, plateforme ludique de suivi orthophonique
 {% endblock %}
 
 
@@ -11,29 +11,29 @@
 
 {% block body %}
 
-	<div id="header" class="container-fluid ">
+	<div class="container-fluid text-white ">
 
-		<h1 class="display-3 mb-5">
+		<h1 class="display-1 mb-5 text-center mt-5">Boo</h1>
+		<div class="display-3 mb-5 text-center mt-5">La plateforme ludique de suivi orthophonique</div>
 
-			<img src="{{ asset('img/ghost128px.png') }}" width="128" height="128" alt="logo boo footer " loading="lazy">, plateforme ludique de suivi orthophonique</h1>
 	</div>
 
 	<div class="row mb-3">
 		<div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+			<div class=" me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 				<div class="my-3 p-3">
-					<img src="{{ asset('img/orthophonie.jpg') }}" alt="Image tour de hanoi jeu" loading="lazy">
+					<img src="{{ asset('img/bg/home-discover.png') }}" alt="Image tour de hanoi jeu" loading="lazy">
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-	<div class="row ">
+	<div class="row  text-white">
 		<div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+			<div class=" me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 				<div class="my-3 p-3">
-					<h2 class="display-5">Patient</h2>
+					<h2 class="display-3">Patient</h2>
 					<p class="lead">Avec Boo vous etes suivi par votre orthophoniste grace à notre suivi statistique</p>
 
 				</div>
@@ -43,9 +43,9 @@
 			</div>
 		</div>
 		<div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+			<div class="me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 				<div class="my-3 p-3">
-					<h2 class="display-5">Orthophoniste</h2>
+					<h2 class="display-3">Orthophoniste</h2>
 					<p class="lead">Avec Boo proposer à vos patients des jeux afin de suivre leur progression
 					</p>
 
@@ -58,35 +58,35 @@
 	</div>
 
 
-	<div class=" p-3 p-md-5 m-md-3 text-center bg-light">
+	<div class=" p-3 p-md-5 m-md-3 text-center  text-white">
 		<div class="col-md-6 p-lg-5 mx-auto my-5">
 			<h1 class="display-4 fw-normal">
 				Découvrez Boo
 			</h1>
 			<p class="lead fw-normal">Stimulation, rééducation et remédiation cognitives à destination des enfants pour les professionnels de santé</p>
-			<a class="btn btn-outline-secondary" href="{{ path('app_register') }}">S'inscrire</a>
+			<a class="btn btn-light" href="{{ path('app_register') }}">S'inscrire</a>
 		</div>
 		<div class="product-device shadow-sm d-none d-md-block"></div>
 		<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 	</div>
 
-	<div class=" p-3 p-md-5 m-md-3 text-center bg-light">
+	<div class=" p-3 p-md-5 m-md-3 text-center  text-white">
 		<div class="col-md-6 p-lg-5 mx-auto my-5">
 			<h1 class="display-4 fw-normal">Evaluation</h1>
 			<p class="lead fw-normal">Avec nos differents jeux disponibles sur la plateforme évalué vos patients plus facilement avec un suivi statistique</p>
-			<a class="btn btn-outline-secondary" href="{{ path('app_login') }}">Se connecter</a>
+			<a class="btn btn-light" href="{{ path('app_login') }}">Se connecter</a>
 		</div>
 		<div class="product-device shadow-sm d-none d-md-block"></div>
 		<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 	</div>
 
 
-	<div class="row">
+	<div class="row text-white">
 		<div class="col">
-			<div class="bg-light me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+			<div class="me-md-3 mx-auto  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 
 				<div class="my-3 p-3">
-					<h2 class="display-5">Gratuit</h2>
+					<h2 class="display-3">Gratuit</h2>
 					<p class="lead">Avec Boo vous pouvez utilisez notre plateforme GRATUITEMENT ! Alors foncez!!</p>
 
 				</div>

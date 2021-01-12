@@ -1,5 +1,5 @@
-#header{
-    background-image: url('../img/bg/header.png');
+body{
+    background-image: url('../img/bg/home-evaluation.png');
     background-size: cover;
     background-position: bottom;
 }

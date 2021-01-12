@@ -9,20 +9,8 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{{ path('home') }}">Accueil</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="{{ path('tarifs') }}">Tarifs</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="{{ path('quisommenous') }}">Qui sommes-nous ?</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="{{ path('contact') }}">Contact</a>
-			</li>
-
 			{% if is_granted('ROLE_USER') %}
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('monprofil') }}">Profil</a>
-				</li>
+
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon cabinet</a>
 					<div class="dropdown-menu">
@@ -33,7 +21,20 @@
 						<a class="dropdown-item" href="{{ path('suivi') }}">Mon carnet de suivi</a>
 					</div>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('monprofil') }}">Profil</a>
+				</li>
 			{% endif %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('tarifs') }}">Tarifs</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('quisommenous') }}">Qui sommes-nous ?</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('contact') }}">Contact</a>
+			</li>
+
 
 			{% if not app.user %}
 				<li class="nav-item">

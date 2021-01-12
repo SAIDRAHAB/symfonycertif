@@ -15,12 +15,12 @@
 			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 		{% endfor %}
 
-		<div class="container text-warning">
+		<div class="container text-white">
 
-			<h1 class="text-center  mb-5 pt-5">S'inscrire</h1>
+			<h1 class="text-center display-3  mb-5 pt-5">S'inscrire</h1>
 
 			{{ form_start(registrationForm) }}
-			{{ form_row(registrationForm.pseudo) }}
+			{{ form_row(registrationForm.pseudo, { 'label': 'Nom' }) }}
 			{{ form_row(registrationForm.email) }}
 			{{ form_row(registrationForm.numero_adeli) }}
 			{{ form_row(registrationForm.plainPassword) }}
@@ -29,7 +29,7 @@
 			<p>
 				<a class="text-warning offset-md-2" href="{{ path('c_g_u') }}">Lire les Conditions</a>
 			</p>
-			<button type="submit" class="btn btn-danger mb-5">Enregister</button>
+			<button type="submit" class="btn btn-light mb-5">Enregister</button>
 			{{ form_end(registrationForm) }}
 
 		</div>

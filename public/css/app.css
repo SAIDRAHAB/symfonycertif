@@ -3,9 +3,6 @@
     background-size: cover;
     background-position: bottom;
 }
-.full-height {
-    height: 100vh;
-}
 nav {
     background-color: #4f487e;
 }
@@ -17,4 +14,7 @@ nav {
 #footer a {
     color: #a39ccc;
 }
-
+.container a {
+    color: #FFF !important;
+    text-decoration: none;
+}

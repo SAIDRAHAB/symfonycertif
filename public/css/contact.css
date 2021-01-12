@@ -3,3 +3,8 @@ body{
     background-size: cover;
     background-position: bottom;
 }
+#form button {
+    background-color: #f8f9fa !important;
+    border-color: #f8f9fa;
+    color: #4f487e;
+}
